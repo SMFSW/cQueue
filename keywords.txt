@@ -13,6 +13,7 @@ Queue_t	KEYWORD1
 #######################################
 q_init	KEYWORD2
 q_clean	KEYWORD2
+q_flush	KEYWORD2
 q_isEmpty	KEYWORD2
 q_isFull	KEYWORD2
 q_nbRecs	KEYWORD2

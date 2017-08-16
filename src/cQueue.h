@@ -1,7 +1,7 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \version 1.0
-** \date 2017/07/14
+** \version 1.1
+** \date 2017/08/16
 ** \copyright BSD 3-Clause License (c) 2017, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -39,24 +39,28 @@ typedef struct Queue_t {
 } Queue_t;
 
 
-/*!	\brief Queue constructor
-**	\param [in] q - pointer of queue to handle
+#define q_init_def(q, sz)	q_init(q, sz, 20, FIFO, false)	//!< Some kind of average default for queue initialization
+
+#define q_pull				q_pop							//!< As pull was already used in SMFSW libs, alias is made to keep compatibility with earlier versions
+#define q_flush				q_clean							//!< As flush is a common keyword, alias is made to empty queue
+
+/*!	\brief Queue initialization
+**	\param [in,out] q - pointer of queue to handle
 **	\param [in] size_rec - size of a record in the queue
 **	\param [in] nb_recs - number of records in the queue
 **	\param [in] type - Queue implementation type: FIFO, LIFO
 **	\param [in] overwrite - Overwrite previous records when queue is full
-**	\return nothing
+**	\return NULL when allocation not possible, Queue tab address when successful
 **/
-void q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite);
-
-#define q_init_def(q, sz)	q_init(q, sz, 20, FIFO, false)
+void * q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite);
 
 /*!	\brief Queue desructor: release dynamically allocated queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in,out] q - pointer of queue to handle
 **/
 void q_kill(Queue_t * q);
 
 /*!	\brief Clean queue, restarting from empty queue
+**	\param [in,out] q - pointer of queue to handle
 **/
 void q_clean(Queue_t * q);
 
@@ -89,7 +93,7 @@ inline uint16_t __attribute__((always_inline)) q_nbRecs(Queue_t * q) {
 }
 
 /*!	\brief Push record to queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in,out] q - pointer of queue to handle
 **	\param [in] record - pointer to record to be pushed into queue
 **	\return Push status
 **	\retval true if succefully pushed into queue
@@ -116,12 +120,13 @@ bool q_pop(Queue_t * q, void * record);
 bool q_peek(Queue_t * q, void * record);
 
 	/*!	\brief Drop current record from queue
-	**	\param [in] q - pointer of queue to handle
+	**	\param [in,out] q - pointer of queue to handle
 	**	\return drop status
 	**	\retval true if succefully dropped from queue
 	**	\retval false if queue is empty
 	**/
 bool q_drop(Queue_t * q);
+
 
 #ifdef __cplusplus
 }

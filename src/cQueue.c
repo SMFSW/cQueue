@@ -1,7 +1,7 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \version 1.0
-** \date 2017/07/14
+** \version 1.1
+** \date 2017/08/16
 ** \copyright BSD 3-Clause License (c) 2017, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -13,6 +13,7 @@
 
 #include "cQueue.h"
 
+#define QUEUE_INITIALIZED			0x5AA5									//!< Queue initialized control value
 
 #define INC_IDX(ctr, end, start)	if (ctr < (end-1))	{ ctr++; }		\
 									else				{ ctr = start; }	//!< Increments buffer index \b cnt rolling back to \b start when limit \b end is reached
@@ -21,24 +22,25 @@
 									else				{ ctr = end-1; }	//!< Decrements buffer index \b cnt rolling back to \b end when limit \b start is reached
 
 
-void q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite)
+void * q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite)
 {
 	q->rec_nb = nb_recs;
 	q->rec_sz = size_rec;
 	q->impl = type;
 	q->ovw = overwrite;
 	
-	if (q->init == 0x5AA5)	{ q_kill(q); }	// Free existing data (if any)
+	q_kill(q);	// Free existing data (if any)
 	q->queue = (uint8_t *) malloc(nb_recs * size_rec);
-
-	q->init = 0x5AA5;
-
+	if (q->queue == NULL)	{ return 0; }	// Return here if Queue not allocated
+	q->init = QUEUE_INITIALIZED;
 	q_clean(q);
+
+	return q->queue;	// return NULL when queue not allocated, Queue address otherwise
 }
 
 void q_kill(Queue_t * q)
 {
-	free(q->queue);
+	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
 }
 
 
