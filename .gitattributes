@@ -1,0 +1,2 @@
+# Override bad linguist detection
+*.h linguist-language=C
