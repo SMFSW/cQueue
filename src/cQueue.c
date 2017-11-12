@@ -1,7 +1,5 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \version 1.1
-** \date 2017/08/16
 ** \copyright BSD 3-Clause License (c) 2017, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -22,7 +20,7 @@
 									else				{ ctr = end-1; }	//!< Decrements buffer index \b cnt rolling back to \b end when limit \b start is reached
 
 
-void * q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite)
+void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
 {
 	q->rec_nb = nb_recs;
 	q->rec_sz = size_rec;
@@ -52,7 +50,7 @@ void q_clean(Queue_t * q)
 }
 
 
-bool q_push(Queue_t * q, void * record)
+bool q_push(Queue_t * q, const void * record)
 {
 	if ((!q->ovw) && q_isFull(q))	{ return false; }
 	

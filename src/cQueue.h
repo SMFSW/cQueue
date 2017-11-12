@@ -1,7 +1,5 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \version 1.1
-** \date 2017/08/16
 ** \copyright BSD 3-Clause License (c) 2017, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -52,9 +50,9 @@ typedef struct Queue_t {
 **	\param [in] overwrite - Overwrite previous records when queue is full
 **	\return NULL when allocation not possible, Queue tab address when successful
 **/
-void * q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite);
+void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite);
 
-/*!	\brief Queue desructor: release dynamically allocated queue
+/*!	\brief Queue destructor: release dynamically allocated queue
 **	\param [in,out] q - pointer of queue to handle
 **/
 void q_kill(Queue_t * q);
@@ -70,7 +68,7 @@ void q_clean(Queue_t * q);
 **	\retval true if queue is empty
 **	\retval false is not empty
 **/
-inline bool __attribute__((always_inline)) q_isEmpty(Queue_t * q) {
+inline bool __attribute__((always_inline)) q_isEmpty(const Queue_t * q) {
 	return (!q->cnt) ? true : false;
 }
 
@@ -80,7 +78,7 @@ inline bool __attribute__((always_inline)) q_isEmpty(Queue_t * q) {
 **	\retval true if queue is full
 **	\retval false is not full
 **/
-inline bool __attribute__((always_inline)) q_isFull(Queue_t * q) {
+inline bool __attribute__((always_inline)) q_isFull(const Queue_t * q) {
 	return (q->cnt == q->rec_nb) ? true : false;
 }
 
@@ -88,7 +86,7 @@ inline bool __attribute__((always_inline)) q_isFull(Queue_t * q) {
 **	\param [in] q - pointer of queue to handle
 **	\return Number of records left in the queue
 **/
-inline uint16_t __attribute__((always_inline)) q_nbRecs(Queue_t * q) {
+inline uint16_t __attribute__((always_inline)) q_nbRecs(const Queue_t * q) {
 	return q->cnt;
 }
 
@@ -99,7 +97,7 @@ inline uint16_t __attribute__((always_inline)) q_nbRecs(Queue_t * q) {
 **	\retval true if succefully pushed into queue
 **	\retval false if queue is full
 **/
-bool q_push(Queue_t * q, void * record);
+bool q_push(Queue_t * q, const void * record);
 
 /*!	\brief Pop record from queue
 **	\param [in] q - pointer of queue to handle

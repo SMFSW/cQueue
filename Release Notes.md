@@ -10,6 +10,9 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
+v1.2	12 November 2017:
+- Use of const qualifier in some function parameters
+
 v1.1	16 August 2017:
 - Queue init function now returns queue address (enabling check for queue allocation success)
 - q_pull & q_flush alias created for earlier versions and purists respectively
