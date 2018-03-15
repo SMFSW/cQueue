@@ -1,23 +1,22 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
 **/
-
-
+/****************************************************************/
 #include <string.h>
 #include <stdlib.h>
 
 #include "cQueue.h"
+/****************************************************************/
 
-#define QUEUE_INITIALIZED			0x5AA5									//!< Queue initialized control value
 
 #define INC_IDX(ctr, end, start)	if (ctr < (end-1))	{ ctr++; }		\
-									else				{ ctr = start; }	//!< Increments buffer index \b cnt rolling back to \b start when limit \b end is reached
+									else				{ ctr = start; }	//!< Increments buffer index \b ctr rolling back to \b start when limit \b end is reached
 
 #define DEC_IDX(ctr, end, start)	if (ctr > (start))	{ ctr--; }		\
-									else				{ ctr = end-1; }	//!< Decrements buffer index \b cnt rolling back to \b end when limit \b start is reached
+									else				{ ctr = end-1; }	//!< Decrements buffer index \b ctr rolling back to \b end when limit \b start is reached
 
 
 void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
@@ -31,7 +30,7 @@ void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, cons
 	q->queue = (uint8_t *) malloc(nb_recs * size_rec);
 	if (q->queue == NULL)	{ return 0; }	// Return here if Queue not allocated
 	q->init = QUEUE_INITIALIZED;
-	q_clean(q);
+	q_flush(q);
 
 	return q->queue;	// return NULL when queue not allocated, Queue address otherwise
 }
@@ -39,10 +38,11 @@ void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, cons
 void q_kill(Queue_t * q)
 {
 	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
+	q->init = 0;
 }
 
 
-void q_clean(Queue_t * q)
+void q_flush(Queue_t * q)
 {
 	q->in = 0;
 	q->out = 0;
@@ -56,13 +56,13 @@ bool q_push(Queue_t * q, const void * record)
 	
 	uint8_t * pStart = q->queue + (q->rec_sz * q->in);
 	memcpy(pStart, record, q->rec_sz);
-	
+
 	INC_IDX(q->in, q->rec_nb, 0);
-	
+
 	if (!q_isFull(q))	{ q->cnt++; }	// Increase records count
-	else if (q->ovw)					// Queue is full and ovwite is allowed
+	else if (q->ovw)					// Queue is full and overwrite is allowed
 	{
-		if (q->impl == FIFO)			{ INC_IDX(q->out, q->rec_nb, 0); }	// as oldest record is overwriten, increment out
+		if (q->impl == FIFO)			{ INC_IDX(q->out, q->rec_nb, 0); }	// as oldest record is overwritten, increment out
 		//else if (q->impl == LIFO)	{}										// Nothing to do in this case
 	}
 	
@@ -105,7 +105,7 @@ bool q_peek(Queue_t * q, void * record)
 	}
 	else if (q->impl == LIFO)
 	{
-		uint16_t rec = q->in;	// Temporary var for peek (no change on var with DEC_IDX)
+		uint16_t rec = q->in;	// Temporary var for peek (no change on q->in with DEC_IDX)
 		DEC_IDX(rec, q->rec_nb, 0);
 		pStart = q->queue + (q->rec_sz * rec);
 	}

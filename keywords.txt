@@ -14,9 +14,11 @@ Queue_t	KEYWORD1
 q_init	KEYWORD2
 q_clean	KEYWORD2
 q_flush	KEYWORD2
+q_isInitialized	KEYWORD2
 q_isEmpty	KEYWORD2
 q_isFull	KEYWORD2
 q_nbRecs	KEYWORD2
+q_getCount	KEYWORD2
 q_push	KEYWORD2
 q_pop	KEYWORD2
 q_pull	KEYWORD2

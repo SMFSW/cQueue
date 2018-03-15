@@ -6,6 +6,7 @@
   This example code is in the public domain.
 
   created 14 July 2017
+  modified 14 march 2018
   by SMFSW
  */
 
@@ -14,7 +15,7 @@
 #define	IMPLEMENTATION	FIFO
 #define OVERWRITE		true
 
-#define NB_PUSH			12
+#define NB_PUSH			14
 #define NB_PULL			11
 
 
@@ -50,6 +51,13 @@ void loop() {
 	{
 		Rec rec = tab[i % (sizeof(tab)/sizeof(Rec))];
 		q_push(&q, &rec);
+		Serial.print(rec.entry1, HEX);
+		Serial.print(" ");
+		Serial.print(rec.entry2, HEX);
+		Serial.print(" Count ");
+		Serial.print(q_getCount(&q));
+		Serial.print(" Full? ");
+		Serial.println(q_isFull(&q));
 	}
 	
 	Serial.print("Full?: ");
@@ -59,8 +67,8 @@ void loop() {
 	for (i = 0 ; i < NB_PULL+1 ; i++)
 	{
 		Rec rec = {0xffff,0xffff};
-		if (i != NB_PULL / 2)	Serial.print(q_pop(&q, &rec));
-		else					Serial.print(q_peek(&q, &rec));
+		if (i != NB_PULL / 2)	{ Serial.print(q_pop(&q, &rec)); }
+		else					{ Serial.print("Test Peek: "); Serial.print(q_peek(&q, &rec)); }
 		Serial.print(" ");
 		Serial.print(rec.entry1, HEX);
 		Serial.print(" ");
