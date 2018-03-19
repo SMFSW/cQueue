@@ -108,6 +108,8 @@ inline uint16_t __attribute__((always_inline)) q_getCount(const Queue_t * q) {
 	return q->cnt; }
 
 /*!	\brief Push record to queue
+**	\warning If using q_push, q_pop, q_peek and/or q_drop in both interrupts and main application,
+**				you shall disable interrupts in main application when using these functions
 **	\param [in,out] q - pointer of queue to handle
 **	\param [in] record - pointer to record to be pushed into queue
 **	\return Push status
@@ -117,6 +119,8 @@ inline uint16_t __attribute__((always_inline)) q_getCount(const Queue_t * q) {
 bool q_push(Queue_t * q, const void * record);
 
 /*!	\brief Pop record from queue
+**	\warning If using q_push, q_pop, q_peek and/or q_drop in both interrupts and main application,
+**				you shall disable interrupts in main application when using these functions
 **	\param [in] q - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be popped from queue
 **	\return Pop status
@@ -126,6 +130,8 @@ bool q_push(Queue_t * q, const void * record);
 bool q_pop(Queue_t * q, void * record);
 
 /*!	\brief Peek record from queue
+**	\warning If using q_push, q_pop, q_peek and/or q_drop in both interrupts and main application,
+**				you shall disable interrupts in main application when using these functions
 **	\param [in] q - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be peeked from queue
 **	\return Peek status
@@ -135,6 +141,8 @@ bool q_pop(Queue_t * q, void * record);
 bool q_peek(Queue_t * q, void * record);
 
 /*!	\brief Drop current record from queue
+**	\warning If using q_push, q_pop, q_peek and/or q_drop in both interrupts and main application,
+**				you shall disable interrupts in main application when using these functions
 **	\param [in,out] q - pointer of queue to handle
 **	\return drop status
 **	\retval true if successfully dropped from queue
