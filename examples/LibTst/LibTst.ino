@@ -1,12 +1,12 @@
 /*
   Lib Test
-  
+
   LIFO / FIFO implementations can be tested by changing IMPLEMENTATION
 
   This example code is in the public domain.
 
   created 14 July 2017
-  modified 14 march 2018
+  modified 22 march 2018
   by SMFSW
  */
 
@@ -63,7 +63,7 @@ void loop() {
 	Serial.print("Full?: ");
 	Serial.print(q_isFull(&q));
 	Serial.print("  Nb left: ");
-	Serial.println(q_nbRecs(&q));
+	Serial.println(q_getCount(&q));
 	for (i = 0 ; i < NB_PULL+1 ; i++)
 	{
 		Rec rec = {0xffff,0xffff};
@@ -77,7 +77,7 @@ void loop() {
 	Serial.print("Empty?: ");
 	Serial.print(q_isEmpty(&q));
 	Serial.print("  Nb left: ");
-	Serial.println(q_nbRecs(&q));
+	Serial.println(q_getCount(&q));
 	
 	while(1);
 }
