@@ -10,6 +10,10 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
+v1.4	3 May 2018:
+- Adding support for unit tests and doxygen documentation generation with Travis CI
+- Updated README.md
+
 v1.3	14 March 2018:
 - Init control value set back to 0 when queue is killed (prevents failure if killing twice the same queue)
 - Added q_isInitialized inline to be able to check after init if queue has been properly allocated
