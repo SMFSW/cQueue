@@ -13,6 +13,7 @@ var searchData=
   ['q_5fpush',['q_push',['../c_queue_8c.html#a79bfb54378aaaf3379caef3d151bf165',1,'q_push(Queue_t *q, const void *record):&#160;cQueue.c'],['../c_queue_8h.html#a79bfb54378aaaf3379caef3d151bf165',1,'q_push(Queue_t *q, const void *record):&#160;cQueue.c']]],
   ['queue',['queue',['../struct_queue__t.html#aef2990ea53fdd8b0ec5f8bc937f649d4',1,'Queue_t']]],
   ['queue_5finitialized',['QUEUE_INITIALIZED',['../c_queue_8h.html#ac2d7a2672ce7ea2565f4b909ae8d8454',1,'cQueue.h']]],
+  ['queue_5fsz',['queue_sz',['../struct_queue__t.html#a14c3f30cf325fb1e145724f7cd845528',1,'Queue_t']]],
   ['queue_5ft',['Queue_t',['../struct_queue__t.html',1,'Queue_t'],['../c_queue_8h.html#a2372c3fd39753d3cbac24fdb7f2c1461',1,'Queue_t():&#160;cQueue.h']]],
   ['queuetype',['QueueType',['../c_queue_8h.html#ac8f074d44698ea46a2cb3ed102f6254a',1,'cQueue.h']]]
 ];
