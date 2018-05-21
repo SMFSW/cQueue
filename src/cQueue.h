@@ -1,5 +1,6 @@
 /*!\file cQueue.h
 ** \author SMFSW
+** \date 2018/05/21
 ** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -9,13 +10,12 @@
 	#define __CQUEUE_H
 
 #ifdef __cplusplus
-extern "C"{
+extern "C" {
 #endif
-/****************************************************************/
-
 
 #include <inttypes.h>
 #include <stdbool.h>
+/****************************************************************/
 
 
 #define QUEUE_INITIALIZED	0x5AA5							//!< Queue initialized control value
@@ -44,6 +44,7 @@ typedef struct Queue_t {
 	bool		ovw;		//!< Overwrite previous records when queue is full allowed
 	uint16_t	rec_nb;		//!< number of records in the queue
 	uint16_t	rec_sz;		//!< Size of a record
+	uint32_t	queue_sz;	//!< Size of the full queue
 	uint8_t *	queue;		//!< Queue start pointer (when allocated)
 	
 	uint16_t	in;			//!< number of records pushed into the queue
@@ -99,6 +100,14 @@ inline bool __attribute__((always_inline)) q_isEmpty(const Queue_t * q) {
 **/
 inline bool __attribute__((always_inline)) q_isFull(const Queue_t * q) {
 	return (q->cnt == q->rec_nb) ? true : false; }
+
+/*!	\brief get size of queue
+**	\remark Size in bytes (like sizeof)
+**	\param [in] q - pointer of queue to handle
+**	\return Size of queue in bytes
+**/
+inline uint32_t __attribute__((always_inline)) q_sizeof(const Queue_t * q) {
+	return q->queue_sz; }
 
 /*!	\brief get number of records in the queue
 **	\param [in] q - pointer of queue to handle

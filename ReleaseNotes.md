@@ -3,7 +3,7 @@ cQueue: Queue handling library (written in plain c)
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
-	- optimisations
+	- optimizations
 	- improvements & new functionalities
 
 ------------
@@ -16,6 +16,7 @@ v1.4	3 May 2018:
 
 v1.3	14 March 2018:
 - Init control value set back to 0 when queue is killed (prevents failure if killing twice the same queue)
+- Added q_sizeof inline to check full queue size in byte (may also be used to check if queue has been allocated properly)
 - Added q_isInitialized inline to be able to check after init if queue has been properly allocated
 - Changed q_nbRecs to q_getCount, but kept q_nbRecs as macro for compatibility with earlier versions
 - Changed q_clean to q_flush, but kept q_clean as macro for compatibility with earlier versions

@@ -1,5 +1,6 @@
 /*!\file cQueue.c
 ** \author SMFSW
+** \date 2018/05/21
 ** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -21,18 +22,23 @@
 
 void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
 {
+	uint32_t size = nb_recs * size_rec;
+
 	q->rec_nb = nb_recs;
 	q->rec_sz = size_rec;
 	q->impl = type;
 	q->ovw = overwrite;
 	
 	q_kill(q);	// Free existing data (if any)
-	q->queue = (uint8_t *) malloc(nb_recs * size_rec);
-	if (q->queue == NULL)	{ return 0; }	// Return here if Queue not allocated
+	q->queue = (uint8_t *) malloc(size);
+
+	if (q->queue == NULL)	{ q->queue_sz = 0; return 0; }	// Return here if Queue not allocated
+	else					{ q->queue_sz = size; }
+
 	q->init = QUEUE_INITIALIZED;
 	q_flush(q);
 
-	return q->queue;	// return NULL when queue not allocated, Queue address otherwise
+	return q->queue;	// return NULL when queue not allocated (beside), Queue address otherwise
 }
 
 void q_kill(Queue_t * q)

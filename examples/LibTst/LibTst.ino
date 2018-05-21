@@ -6,7 +6,7 @@
   This example code is in the public domain.
 
   created 14 July 2017
-  modified 22 march 2018
+  modified 21 May 2018
   by SMFSW
  */
 
@@ -41,6 +41,10 @@ void setup() {
 	Serial.begin(115200);
 	
 	q_init(&q, sizeof(Rec), 10, IMPLEMENTATION, OVERWRITE);
+
+	Serial.print("Queue is ");
+	Serial.print(q_sizeof(&q));
+	Serial.println(" bytes long.");
 }
 
 // the loop function runs over and over again forever

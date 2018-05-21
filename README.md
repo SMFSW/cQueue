@@ -30,6 +30,7 @@ Port of Queue has been made to work with STM32 code written in plain c.
   - `q_IsInitialized(Queue_t * q)`: `true` if initialized properly, `false` otherwise
   - `q_isEmpty(Queue_t * q)`: `true` if full, `false` otherwise
   - `q_isFull(Queue_t * q)`: `true` if empty, `false` otherwise
+  - `q_sizeof(Queue_t * q)`: queue size in bytes (returns 0 in case queue allocation failed)
   - `q_getCount(Queue_t * q)` or `q_nbRecs(Queue_t * q)`: number of records in the queue
   - `q_clean(Queue_t * q)` or `q_flush(Queue_t * q)`: remove all items in the queue
 
