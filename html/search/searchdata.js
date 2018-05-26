@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "_cdefiloqr",
+  0: "cdefiloqr",
   1: "q",
   2: "c",
-  3: "_q",
+  3: "q",
   4: "cioqr",
   5: "q",
   6: "e",

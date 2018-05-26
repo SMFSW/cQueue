@@ -1,9 +1,0 @@
-<map id="__attribute__" name="__attribute__">
-<area shape="rect" id="node2" href="$c_queue_8h.html#a79bfb54378aaaf3379caef3d151bf165" title="Push record to queue. " alt="" coords="152,5,216,32"/>
-<area shape="rect" id="node6" href="$c_queue_8h.html#a24f038496d6aba325d6627dbde49269b" title="Pop record from queue. " alt="" coords="267,56,325,83"/>
-<area shape="rect" id="node7" href="$c_queue_8h.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="264,107,328,133"/>
-<area shape="rect" id="node8" href="$c_queue_8h.html#a2095f85492b75fade9741df03910c9ba" title="Drop current record from queue. " alt="" coords="153,157,215,184"/>
-<area shape="rect" id="node3" href="$c_queue_8c.html#a24f038496d6aba325d6627dbde49269b" title="Pop record from queue. " alt="" coords="267,5,325,32"/>
-<area shape="rect" id="node4" href="$c_queue_8c.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="376,56,440,83"/>
-<area shape="rect" id="node5" href="$c_queue_8c.html#a2095f85492b75fade9741df03910c9ba" title="Drop current record from queue. " alt="" coords="488,81,549,108"/>
-</map>

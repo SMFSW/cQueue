@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lifo',['LIFO',['../c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2aa01d7974609bd0111390748dc20f1633',1,'cQueue.h']]]
+  ['out',['out',['../struct_queue__t.html#a42f7921bb486b2e7d7bb867ca1c97b28',1,'Queue_t']]],
+  ['ovw',['ovw',['../struct_queue__t.html#a1493974213cb7d47856503e006982444',1,'Queue_t']]]
 ];

@@ -1,0 +1,10 @@
+<map id="q_getRemainingCount" name="q_getRemainingCount">
+<area shape="rect" id="node2" href="$c_queue_8h.html#a79bfb54378aaaf3379caef3d151bf165" title="Push record to queue. " alt="" coords="205,56,269,83"/>
+<area shape="rect" id="node7" href="$c_queue_8h.html#a24f038496d6aba325d6627dbde49269b" title="Pop record from queue. " alt="" coords="322,107,379,133"/>
+<area shape="rect" id="node8" href="$c_queue_8h.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="432,157,496,184"/>
+<area shape="rect" id="node9" href="$c_queue_8h.html#a2095f85492b75fade9741df03910c9ba" title="Drop current record from queue. " alt="" coords="207,208,268,235"/>
+<area shape="rect" id="node3" href="$c_queue_8h.html#abc859556d0720aa3f083718a88d8bf04" title="get fullness state of the queue " alt="" coords="317,5,384,32"/>
+<area shape="rect" id="node4" href="$c_queue_8c.html#a24f038496d6aba325d6627dbde49269b" title="Pop record from queue. " alt="" coords="322,56,379,83"/>
+<area shape="rect" id="node5" href="$c_queue_8c.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="432,107,496,133"/>
+<area shape="rect" id="node6" href="$c_queue_8c.html#a2095f85492b75fade9741df03910c9ba" title="Drop current record from queue. " alt="" coords="544,132,605,159"/>
+</map>
