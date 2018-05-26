@@ -1,6 +1,6 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \date 2018/05/21
+** \date 2018/05/26
 ** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)

@@ -20,6 +20,7 @@ q_isFull	KEYWORD2
 q_sizeof	KEYWORD2
 q_getCount	KEYWORD2
 q_nbRecs	KEYWORD2
+q_getRemainingCount	KEYWORD2
 q_push	KEYWORD2
 q_pop	KEYWORD2
 q_pull	KEYWORD2

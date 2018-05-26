@@ -10,9 +10,12 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
-v1.4	3 May 2018:
+v1.4	26 May 2018:
+- Added q_sizeOf inline to check full queue size in byte (may also be used to check if queue has been allocated properly)
+- Added q_getRemainingCount inline returning how much records are left in the queue
 - Adding support for unit tests and doxygen documentation generation with Travis CI
 - Updated README.md
+- Added more example sketches & updated LibTst example using latest inlines additions
 
 v1.3	14 March 2018:
 - Init control value set back to 0 when queue is killed (prevents failure if killing twice the same queue)

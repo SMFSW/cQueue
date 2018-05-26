@@ -6,7 +6,7 @@
   This example code is in the public domain.
 
   created 14 July 2017
-  modified 21 May 2018
+  modified 26 May 2018
   by SMFSW
  */
 
@@ -60,6 +60,8 @@ void loop() {
 		Serial.print(rec.entry2, HEX);
 		Serial.print(" Count ");
 		Serial.print(q_getCount(&q));
+		Serial.print(" Remaining ");
+		Serial.print(q_getRemainingCount(&q));
 		Serial.print(" Full? ");
 		Serial.println(q_isFull(&q));
 	}

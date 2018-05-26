@@ -1,6 +1,6 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \date 2018/05/21
+** \date 2018/05/26
 ** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -111,10 +111,17 @@ inline uint32_t __attribute__((always_inline)) q_sizeof(const Queue_t * q) {
 
 /*!	\brief get number of records in the queue
 **	\param [in] q - pointer of queue to handle
-**	\return Number of records left in the queue
+**	\return Number of records stored in the queue
 **/
 inline uint16_t __attribute__((always_inline)) q_getCount(const Queue_t * q) {
 	return q->cnt; }
+
+/*!	\brief get number of records left in the queue
+**	\param [in] q - pointer of queue to handle
+**	\return Number of records left in the queue
+**/
+inline uint16_t __attribute__((always_inline)) q_getRemainingCount(const Queue_t * q) {
+	return q->rec_nb - q->cnt; }
 
 /*!	\brief Push record to queue
 **	\warning If using q_push, q_pop, q_peek and/or q_drop in both interrupts and main application,

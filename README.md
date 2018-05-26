@@ -31,12 +31,14 @@ Port of Queue has been made to work with STM32 code written in plain c.
   - `q_isEmpty(Queue_t * q)`: `true` if full, `false` otherwise
   - `q_isFull(Queue_t * q)`: `true` if empty, `false` otherwise
   - `q_sizeof(Queue_t * q)`: queue size in bytes (returns 0 in case queue allocation failed)
-  - `q_getCount(Queue_t * q)` or `q_nbRecs(Queue_t * q)`: number of records in the queue
+  - `q_getCount(Queue_t * q)` or `q_nbRecs(Queue_t * q)`: number of records stored in the queue
+  - `q_getRemainingCount(Queue_t * q)`: number of records left in the queue
   - `q_clean(Queue_t * q)` or `q_flush(Queue_t * q)`: remove all items in the queue
 
 ## Examples included
 
 - [SimpleQueue.ino](examples/SimpleQueue/SimpleQueue.ino): Simple queue example (both LIFO FIFO implementations can be tested)
+- [PointersQueue.ino](examples/PointersQueue/PointersQueue.ino): Queue of function pointers performing queued actions
 - [RolloverTest.ino](examples/RolloverTest/RolloverTest.ino): Simple test to test queue rollover (for lib testing purposes mainly)
 - [LibTst.ino](examples/LibTst/LibTst.ino): flexible test (for lib testing purposes mainly)
 
