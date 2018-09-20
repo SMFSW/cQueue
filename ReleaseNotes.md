@@ -10,6 +10,10 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
+v1.5:	20 Sep 2018:
+- Added nonnull attribute to check for null pointers (will report warnings at compile time)
+- Wrapped attributes by macros (for specific compiler semantic handling if needed)
+
 v1.4	26 May 2018:
 - Added q_sizeOf inline to check full queue size in byte (may also be used to check if queue has been allocated properly)
 - Added q_getRemainingCount inline returning how much records are left in the queue

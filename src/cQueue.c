@@ -1,6 +1,6 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \date 2018/05/26
+** \date 2018/09/20
 ** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
@@ -20,7 +20,7 @@
 									else				{ ctr = end-1; }	//!< Decrements buffer index \b ctr rolling back to \b end when limit \b start is reached
 
 
-void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
+void * NONNULL__ q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
 {
 	uint32_t size = nb_recs * size_rec;
 
@@ -41,14 +41,14 @@ void * q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, cons
 	return q->queue;	// return NULL when queue not allocated (beside), Queue address otherwise
 }
 
-void q_kill(Queue_t * q)
+void NONNULL__ q_kill(Queue_t * q)
 {
 	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
 	q->init = 0;
 }
 
 
-void q_flush(Queue_t * q)
+void NONNULL__ q_flush(Queue_t * q)
 {
 	q->in = 0;
 	q->out = 0;
@@ -56,7 +56,7 @@ void q_flush(Queue_t * q)
 }
 
 
-bool q_push(Queue_t * q, const void * record)
+bool NONNULL__ q_push(Queue_t * q, const void * record)
 {
 	if ((!q->ovw) && q_isFull(q))	{ return false; }
 	
@@ -75,7 +75,7 @@ bool q_push(Queue_t * q, const void * record)
 	return true;
 }
 
-bool q_pop(Queue_t * q, void * record)
+bool NONNULL__ q_pop(Queue_t * q, void * record)
 {
 	uint8_t * pStart;
 	
@@ -98,7 +98,7 @@ bool q_pop(Queue_t * q, void * record)
 	return true;
 }
 
-bool q_peek(Queue_t * q, void * record)
+bool NONNULL__ q_peek(Queue_t * q, void * record)
 {
 	uint8_t * pStart;
 	
@@ -121,7 +121,7 @@ bool q_peek(Queue_t * q, void * record)
 	return true;
 }
 
-bool q_drop(Queue_t * q)
+bool NONNULL__ q_drop(Queue_t * q)
 {
 	if (q_isEmpty(q))			{ return false; }	// No more records
 	
