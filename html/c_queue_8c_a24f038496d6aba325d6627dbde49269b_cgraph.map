@@ -1,4 +1,0 @@
-<map id="q_pop" name="q_pop">
-<area shape="rect" id="node2" href="$c_queue_8c.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="112,5,176,32"/>
-<area shape="rect" id="node3" href="$c_queue_8c.html#a2095f85492b75fade9741df03910c9ba" title="Drop current record from queue. " alt="" coords="224,5,285,32"/>
-</map>

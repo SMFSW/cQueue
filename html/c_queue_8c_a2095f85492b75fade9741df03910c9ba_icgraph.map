@@ -1,6 +1,0 @@
-<map id="q_drop" name="q_drop">
-<area shape="rect" id="node2" href="$c_queue_8h.html#af692849807d68686738513aa601c40c3" title="Peek record from queue. " alt="" coords="115,107,179,133"/>
-<area shape="rect" id="node5" href="$c_queue_8h.html#a493c1cd4fa3907f47f6206ff94891662" title="get number of records left in the queue " alt="" coords="446,81,597,108"/>
-<area shape="rect" id="node3" href="$c_queue_8h.html#a24f038496d6aba325d6627dbde49269b" title="Pop record from queue. " alt="" coords="227,56,285,83"/>
-<area shape="rect" id="node4" href="$c_queue_8h.html#a79bfb54378aaaf3379caef3d151bf165" title="Push record to queue. " alt="" coords="333,5,397,32"/>
-</map>
