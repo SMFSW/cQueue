@@ -1,7 +1,6 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \date 2018/09/20
-** \copyright BSD 3-Clause License (c) 2017-2018, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2019, SMFSW
 ** \brief Queue handling library (designed in c on STM32)
 ** \details Queue handling library (designed in c on STM32)
 **/
@@ -13,14 +12,32 @@
 /****************************************************************/
 
 
-#define INC_IDX(ctr, end, start)	if (ctr < (end-1))	{ ctr++; }		\
-									else				{ ctr = start; }	//!< Increments buffer index \b ctr rolling back to \b start when limit \b end is reached
+/*!	\brief Increment index
+**	\details Increment buffer index \b pIdx rolling back to \b start when limit \b end is reached
+**	\param [in,out] pIdx - pointer to index value
+**	\param [in] end - counter upper limit value
+**	\param [in] start - counter lower limit value
+**/
+static inline void __attribute__((nonnull, always_inline)) inc_idx(uint16_t * pIdx, const uint16_t end, const uint16_t start)
+{
+	if (*pIdx < end - 1)	{ (*pIdx)++; }
+	else					{ *pIdx = start; }
+}
 
-#define DEC_IDX(ctr, end, start)	if (ctr > (start))	{ ctr--; }		\
-									else				{ ctr = end-1; }	//!< Decrements buffer index \b ctr rolling back to \b end when limit \b start is reached
+/*!	\brief Decrement index
+**	\details Decrement buffer index \b pIdx rolling back to \b end when limit \b start is reached
+**	\param [in,out] pIdx - pointer to index value
+**	\param [in] end - counter upper limit value
+**	\param [in] start - counter lower limit value
+**/
+static inline void __attribute__((nonnull, always_inline)) dec_idx(uint16_t * pIdx, const uint16_t end, const uint16_t start)
+{
+	if (*pIdx > start)		{ (*pIdx)--; }
+	else					{ *pIdx = end - 1; }
+}
 
 
-void * NONNULL__ q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
+void * __attribute__((nonnull)) q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
 {
 	uint32_t size = nb_recs * size_rec;
 
@@ -28,7 +45,7 @@ void * NONNULL__ q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_
 	q->rec_sz = size_rec;
 	q->impl = type;
 	q->ovw = overwrite;
-	
+
 	q_kill(q);	// Free existing data (if any)
 	q->queue = (uint8_t *) malloc(size);
 
@@ -41,14 +58,14 @@ void * NONNULL__ q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_
 	return q->queue;	// return NULL when queue not allocated (beside), Queue address otherwise
 }
 
-void NONNULL__ q_kill(Queue_t * q)
+void __attribute__((nonnull)) q_kill(Queue_t * q)
 {
 	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
 	q->init = 0;
 }
 
 
-void NONNULL__ q_flush(Queue_t * q)
+void __attribute__((nonnull)) q_flush(Queue_t * q)
 {
 	q->in = 0;
 	q->out = 0;
@@ -56,54 +73,54 @@ void NONNULL__ q_flush(Queue_t * q)
 }
 
 
-bool NONNULL__ q_push(Queue_t * q, const void * record)
+bool __attribute__((nonnull)) q_push(Queue_t * q, const void * record)
 {
 	if ((!q->ovw) && q_isFull(q))	{ return false; }
-	
+
 	uint8_t * pStart = q->queue + (q->rec_sz * q->in);
 	memcpy(pStart, record, q->rec_sz);
 
-	INC_IDX(q->in, q->rec_nb, 0);
+	inc_idx(&q->in, q->rec_nb, 0);
 
 	if (!q_isFull(q))	{ q->cnt++; }	// Increase records count
 	else if (q->ovw)					// Queue is full and overwrite is allowed
 	{
-		if (q->impl == FIFO)			{ INC_IDX(q->out, q->rec_nb, 0); }	// as oldest record is overwritten, increment out
+		if (q->impl == FIFO)			{ inc_idx(&q->out, q->rec_nb, 0); }	// as oldest record is overwritten, increment out
 		//else if (q->impl == LIFO)	{}										// Nothing to do in this case
 	}
-	
+
 	return true;
 }
 
-bool NONNULL__ q_pop(Queue_t * q, void * record)
+bool __attribute__((nonnull)) q_pop(Queue_t * q, void * record)
 {
 	uint8_t * pStart;
-	
+
 	if (q_isEmpty(q))	{ return false; }	// No more records
-	
+
 	if (q->impl == FIFO)
 	{
 		pStart = q->queue + (q->rec_sz * q->out);
-		INC_IDX(q->out, q->rec_nb, 0);
+		inc_idx(&q->out, q->rec_nb, 0);
 	}
 	else if (q->impl == LIFO)
 	{
-		DEC_IDX(q->in, q->rec_nb, 0);
+		dec_idx(&q->in, q->rec_nb, 0);
 		pStart = q->queue + (q->rec_sz * q->in);
 	}
 	else	{ return false; }
-	
+
 	memcpy(record, pStart, q->rec_sz);
 	q->cnt--;	// Decrease records count
 	return true;
 }
 
-bool NONNULL__ q_peek(Queue_t * q, void * record)
+bool __attribute__((nonnull)) q_peek(Queue_t * q, void * record)
 {
 	uint8_t * pStart;
-	
+
 	if (q_isEmpty(q))	{ return false; }	// No more records
-	
+
 	if (q->impl == FIFO)
 	{
 		pStart = q->queue + (q->rec_sz * q->out);
@@ -111,24 +128,24 @@ bool NONNULL__ q_peek(Queue_t * q, void * record)
 	}
 	else if (q->impl == LIFO)
 	{
-		uint16_t rec = q->in;	// Temporary var for peek (no change on q->in with DEC_IDX)
-		DEC_IDX(rec, q->rec_nb, 0);
+		uint16_t rec = q->in;	// Temporary var for peek (no change on q->in with dec_idx)
+		dec_idx(&rec, q->rec_nb, 0);
 		pStart = q->queue + (q->rec_sz * rec);
 	}
 	else	{ return false; }
-	
+
 	memcpy(record, pStart, q->rec_sz);
 	return true;
 }
 
-bool NONNULL__ q_drop(Queue_t * q)
+bool __attribute__((nonnull)) q_drop(Queue_t * q)
 {
 	if (q_isEmpty(q))			{ return false; }	// No more records
-	
-	if (q->impl == FIFO)		{ INC_IDX(q->out, q->rec_nb, 0); }
-	else if (q->impl == LIFO)	{ DEC_IDX(q->in, q->rec_nb, 0); }
+
+	if (q->impl == FIFO)		{ inc_idx(&q->out, q->rec_nb, 0); }
+	else if (q->impl == LIFO)	{ dec_idx(&q->in, q->rec_nb, 0); }
 	else						{ return false; }
-	
+
 	q->cnt--;	// Decrease records count
 	return true;
 }

@@ -1,5 +1,5 @@
 cQueue: Queue handling library (written in plain c)
-2017-2018 SMFSW
+2017-2019 SMFSW
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
@@ -9,6 +9,11 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 ------------
 
 ** Actual:
+
+v1.6:	1 Jun 2019:
+- Fixed README.md thanks to @reydelleon
+- INC_IDX & DEC_IDX macros changed to inlines
+- Removed gcc attributes macros (which can cause issues parsing projects where macros already defined)
 
 v1.5:	20 Sep 2018:
 - Added nonnull attribute to check for null pointers (will report warnings at compile time)
