@@ -26,6 +26,15 @@ Port of Queue has been made to work with STM32 code written in plain c.
 - Drop stuff from the queue using `q_drop(Queue_t * q)`
   - returns `true` if successfully dropped from queue
   - returns `false` if queue is empty
+- Peek stuff at index from the queue using `q_peekIdx(Queue_t * q, void * rec, uint16_t idx)`
+  - returns `true` if successfully peeked from queue
+  - returns `false` if index is out of range
+  - warning: no associated drop function, not to use with `q_drop`
+- Peek latest stored from the queue using `q_peekPrevious(Queue_t * q, void * rec)`
+  - returns `true` if successfully peeked from queue
+  - returns `false` if queue is empty
+  - warning: no associated drop function, not to use with `q_drop`
+  - note: only useful with FIFO implementation, use `q_peek` instead with a LIFO
 - Other methods:
   - `q_IsInitialized(Queue_t * q)`: `true` if initialized properly, `false` otherwise
   - `q_isEmpty(Queue_t * q)`: `true` if empty, `false` otherwise
@@ -35,10 +44,19 @@ Port of Queue has been made to work with STM32 code written in plain c.
   - `q_getRemainingCount(Queue_t * q)`: number of records left in the queue
   - `q_clean(Queue_t * q)` or `q_flush(Queue_t * q)`: remove all items in the queue
 
+## Notes
+
+- Interrupt safe automation is not implemented in the library. You have to manually disable/enable interrupts where required.
+No implementation will be made as it would be an issue when using `peek`/`drop` methods with LIFO implementation:
+if an item is put to the queue through interrupt between `peek` and `drop` calls, the `drop` call would drop the wrong (newer) item.
+In this particular case, dropping decision must be made before re-enabling interrupts.
+
 ## Examples included
 
 - [SimpleQueue.ino](examples/SimpleQueue/SimpleQueue.ino): Simple queue example (both LIFO FIFO implementations can be tested)
 - [PointersQueue.ino](examples/PointersQueue/PointersQueue.ino): Queue of function pointers performing queued actions
+- [QueueDuplicates.ino](examples/QueueDuplicates/QueueDuplicates.ino): Simple test to test queue duplicates before pushing to queue
+- [QueueIdxPeeking.ino](examples/QueueIdxPeeking/QueueIdxPeeking.ino): Simple test to test queue index picking
 - [RolloverTest.ino](examples/RolloverTest/RolloverTest.ino): Simple test to test queue rollover (for lib testing purposes mainly)
 - [LibTst.ino](examples/LibTst/LibTst.ino): flexible test (for lib testing purposes mainly)
 

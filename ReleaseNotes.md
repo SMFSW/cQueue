@@ -10,14 +10,15 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
-v1.6:	1 Jun 2019:
+v1.6:	3 Nov 2019:
+- const qualifiers added where missing
+- Added q_peekIdx and q_peekPrevious functions
+- Added related examples
+
+v1.5:	2 Jun 2019:
 - Fixed README.md thanks to @reydelleon
 - INC_IDX & DEC_IDX macros changed to inlines
-- Removed gcc attributes macros (which can cause issues parsing projects where macros already defined)
-
-v1.5:	20 Sep 2018:
 - Added nonnull attribute to check for null pointers (will report warnings at compile time)
-- Wrapped attributes by macros (for specific compiler semantic handling if needed)
 
 v1.4	26 May 2018:
 - Added q_sizeOf inline to check full queue size in byte (may also be used to check if queue has been allocated properly)

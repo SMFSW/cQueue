@@ -18,8 +18,10 @@
 **	\param [in] end - counter upper limit value
 **	\param [in] start - counter lower limit value
 **/
-static inline void __attribute__((nonnull, always_inline)) inc_idx(uint16_t * pIdx, const uint16_t end, const uint16_t start)
+static inline void __attribute__((nonnull, always_inline)) inc_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
+//	(*pIdx)++;
+//	*pIdx %= end;
 	if (*pIdx < end - 1)	{ (*pIdx)++; }
 	else					{ *pIdx = start; }
 }
@@ -30,16 +32,16 @@ static inline void __attribute__((nonnull, always_inline)) inc_idx(uint16_t * pI
 **	\param [in] end - counter upper limit value
 **	\param [in] start - counter lower limit value
 **/
-static inline void __attribute__((nonnull, always_inline)) dec_idx(uint16_t * pIdx, const uint16_t end, const uint16_t start)
+static inline void __attribute__((nonnull, always_inline)) dec_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
 	if (*pIdx > start)		{ (*pIdx)--; }
 	else					{ *pIdx = end - 1; }
 }
 
 
-void * __attribute__((nonnull)) q_init(Queue_t * q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
+void * __attribute__((nonnull)) q_init(Queue_t * const q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite)
 {
-	uint32_t size = nb_recs * size_rec;
+	const uint32_t size = nb_recs * size_rec;
 
 	q->rec_nb = nb_recs;
 	q->rec_sz = size_rec;
@@ -58,14 +60,14 @@ void * __attribute__((nonnull)) q_init(Queue_t * q, const uint16_t size_rec, con
 	return q->queue;	// return NULL when queue not allocated (beside), Queue address otherwise
 }
 
-void __attribute__((nonnull)) q_kill(Queue_t * q)
+void __attribute__((nonnull)) q_kill(Queue_t * const q)
 {
 	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
 	q->init = 0;
 }
 
 
-void __attribute__((nonnull)) q_flush(Queue_t * q)
+void __attribute__((nonnull)) q_flush(Queue_t * const q)
 {
 	q->in = 0;
 	q->out = 0;
@@ -73,11 +75,11 @@ void __attribute__((nonnull)) q_flush(Queue_t * q)
 }
 
 
-bool __attribute__((nonnull)) q_push(Queue_t * q, const void * record)
+bool __attribute__((nonnull)) q_push(Queue_t * const q, const void * const record)
 {
 	if ((!q->ovw) && q_isFull(q))	{ return false; }
 
-	uint8_t * pStart = q->queue + (q->rec_sz * q->in);
+	uint8_t * const pStart = q->queue + (q->rec_sz * q->in);
 	memcpy(pStart, record, q->rec_sz);
 
 	inc_idx(&q->in, q->rec_nb, 0);
@@ -92,9 +94,9 @@ bool __attribute__((nonnull)) q_push(Queue_t * q, const void * record)
 	return true;
 }
 
-bool __attribute__((nonnull)) q_pop(Queue_t * q, void * record)
+bool __attribute__((nonnull)) q_pop(Queue_t * const q, void * const record)
 {
-	uint8_t * pStart;
+	const uint8_t * pStart;
 
 	if (q_isEmpty(q))	{ return false; }	// No more records
 
@@ -115,9 +117,9 @@ bool __attribute__((nonnull)) q_pop(Queue_t * q, void * record)
 	return true;
 }
 
-bool __attribute__((nonnull)) q_peek(Queue_t * q, void * record)
+bool __attribute__((nonnull)) q_peek(const Queue_t * const q, void * const record)
 {
-	uint8_t * pStart;
+	const uint8_t * pStart;
 
 	if (q_isEmpty(q))	{ return false; }	// No more records
 
@@ -138,7 +140,7 @@ bool __attribute__((nonnull)) q_peek(Queue_t * q, void * record)
 	return true;
 }
 
-bool __attribute__((nonnull)) q_drop(Queue_t * q)
+bool __attribute__((nonnull)) q_drop(Queue_t * const q)
 {
 	if (q_isEmpty(q))			{ return false; }	// No more records
 
@@ -147,6 +149,26 @@ bool __attribute__((nonnull)) q_drop(Queue_t * q)
 	else						{ return false; }
 
 	q->cnt--;	// Decrease records count
+	return true;
+}
+
+bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const q, void * const record, const uint16_t idx)
+{
+	const uint8_t * pStart;
+
+	if (idx + 1 > q_getCount(q))	{ return false; }	// Index out of range
+
+	if (q->impl == FIFO)
+	{
+		pStart = q->queue + (q->rec_sz * ((q->out + idx) % q->rec_nb));
+	}
+	else if (q->impl == LIFO)
+	{
+		pStart = q->queue + (q->rec_sz * idx);
+	}
+	else	{ return false; }
+
+	memcpy(record, pStart, q->rec_sz);
 	return true;
 }
 

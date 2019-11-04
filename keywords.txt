@@ -26,6 +26,8 @@ q_pop	KEYWORD2
 q_pull	KEYWORD2
 q_peek	KEYWORD2
 q_drop	KEYWORD2
+q_peekIdx	KEYWORD2
+q_peekPrevious	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)
