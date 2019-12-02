@@ -10,6 +10,9 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
+v1.7:	2 Dec 2019:
+- Fix wrong github tag leading to no update by Arduino Library Manager (v1.5 is tagged as v1.6 in library.properties)
+
 v1.6:	3 Nov 2019:
 - const qualifiers added where missing
 - Added q_peekIdx and q_peekPrevious functions
