@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "cdefilnoqr",
+  0: "cdefiloqr",
   1: "q",
   2: "c",
   3: "q",
@@ -8,7 +8,7 @@ var indexSectionsWithContent =
   5: "q",
   6: "e",
   7: "fl",
-  8: "dinq",
+  8: "q",
   9: "d"
 };
 

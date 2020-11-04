@@ -1,5 +1,0 @@
-<map id="q_peek" name="q_peek">
-<area shape="rect" id="node2" href="$c_queue_8h.html#a26dafa802193904795e278a1b653b8af" title="Pop record from queue. " alt="" coords="118,56,175,83"/>
-<area shape="rect" id="node4" href="$c_queue_8h.html#a5993000f76b3cc68fee8c438e44fd472" title="get number of records left in the queue " alt="" coords="337,56,487,83"/>
-<area shape="rect" id="node3" href="$c_queue_8h.html#a9db1a11a19355aa0cfab4c94c024fa3f" title="Push record to queue. " alt="" coords="224,5,288,32"/>
-</map>

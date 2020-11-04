@@ -1,6 +1,0 @@
-<map id="q_push" name="q_push">
-<area shape="rect" id="node2" href="$c_queue_8h.html#a4cc92771816b2adeda143e65be0fae7c" title="get fullness state of the queue " alt="" coords="117,5,184,32"/>
-<area shape="rect" id="node3" href="$c_queue_8c.html#a26dafa802193904795e278a1b653b8af" title="Pop record from queue. " alt="" coords="122,56,179,83"/>
-<area shape="rect" id="node4" href="$c_queue_8c.html#abee1ec540d3b91d3c995f081e1bc3513" title="Peek record from queue. " alt="" coords="232,56,296,83"/>
-<area shape="rect" id="node5" href="$c_queue_8c.html#a7825824f2b4da409854cff85953cf0f9" title="Drop current record from queue. " alt="" coords="344,56,405,83"/>
-</map>
