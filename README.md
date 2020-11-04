@@ -36,7 +36,7 @@ Port of Queue has been made to work with STM32 code written in plain c.
   - warning: no associated drop function, not to use with `q_drop`
   - note: only useful with FIFO implementation, use `q_peek` instead with a LIFO
 - Other methods:
-  - `q_IsInitialized(Queue_t * q)`: `true` if initialized properly, `false` otherwise
+  - `q_isInitialized(Queue_t * q)`: `true` if initialized properly, `false` otherwise
   - `q_isEmpty(Queue_t * q)`: `true` if empty, `false` otherwise
   - `q_isFull(Queue_t * q)`: `true` if full, `false` otherwise
   - `q_sizeof(Queue_t * q)`: queue size in bytes (returns 0 in case queue allocation failed)
