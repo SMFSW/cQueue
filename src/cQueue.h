@@ -63,6 +63,17 @@ typedef struct Queue_t {
 **/
 void * __attribute__((nonnull)) q_init(Queue_t * const q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite);
 
+/*!	\brief Queue initialization
+**	\param [in,out] q - pointer of queue to handle
+**	\param [in] size_rec - size of a record in the queue
+**	\param [in] nb_recs - number of records in the queue
+**	\param [in] type - Queue implementation type: FIFO, LIFO
+**	\param [in] overwrite - Overwrite previous records when queue is full
+**  \param [in] buf - pointer to statically allocated record buffer
+**	\return NULL when allocation not possible, Queue tab address when successful
+**/
+void * __attribute__((nonnull)) q_init_static(Queue_t * const q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite, uint8_t * buf);
+
 /*!	\brief Queue destructor: release dynamically allocated queue
 **	\param [in,out] q - pointer of queue to handle
 **/

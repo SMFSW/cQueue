@@ -60,6 +60,26 @@ void * __attribute__((nonnull)) q_init(Queue_t * const q, const uint16_t size_re
 	return q->queue;	// return NULL when queue not allocated (beside), Queue address otherwise
 }
 
+void * __attribute__((nonnull)) q_init_static(Queue_t * const q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite, uint8_t * buf)
+{
+	const uint32_t size = nb_recs * size_rec;
+
+	q->rec_nb = nb_recs;
+	q->rec_sz = size_rec;
+	q->impl = type;
+	q->ovw = overwrite;
+
+	q->init = 0;
+	q->queue = buf;
+
+	q->queue_sz = size;
+
+	q->init = QUEUE_INITIALIZED;
+	q_flush(q);
+
+	return q->queue;	// return Queue address
+}
+
 void __attribute__((nonnull)) q_kill(Queue_t * const q)
 {
 	if (q->init == QUEUE_INITIALIZED)	{ free(q->queue); }	// Free existing data (if already initialized)
