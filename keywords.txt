@@ -1,17 +1,18 @@
 #######################################
-# Syntax Coloring Map For Queue
+# Syntax Coloring Map For cQueue
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-cQueue	KEYWORD1
+QueueType	KEYWORD1
 Queue_t	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 q_init	KEYWORD2
+q_init_static	KEYWORD2
 q_clean	KEYWORD2
 q_flush	KEYWORD2
 q_isInitialized	KEYWORD2

@@ -1,48 +1,55 @@
-# cQueue [![Build Status](https://travis-ci.com/SMFSW/cQueue.svg?branch=master)](https://travis-ci.com/SMFSW/cQueue)
+# cQueue
 
 Queue handling library (written in plain c)
 
 This library is designed for a c implementation on embedded devices, yet may be compiled without change with gcc for other purposes/targets.
 Designed as a library to be compatible with Arduino LibManager specifications (yet rather use Queue instead - https://github.com/SMFSW/Queue).
-Port of Queue has been made to work with STM32 code written in plain c.
 
 ## Usage
 
-- Initialize a Queue using `q_init(Queue_t * q, uint16_t size_rec, uint16_t nb_recs=20, QueueType type=FIFO, overwrite=false)`:
-  - `q` - pointer to the queue struct
+- Initialize a Queue using `q_init(Queue_t * pQ, size_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite)`:
+  - `pQ` - pointer to the queue struct
   - `size_rec` - size of a record in the queue
   - `nb_recs` - number of records in the queue
-  - `type` - Queue implementation type: `FIFO`, `LIFO`
-  - `overwrite` - Overwrite previous records when queue is full if set to `true`
-- Push stuff to the queue using `q_push(Queue_t * q, void * rec)`
+  - `type` - queue implementation type: `FIFO`, `LIFO`
+  - `overwrite` - overwrite previous records when queue is full if set to `true`
+- OR a statically allocated Queue using `q_init_static(Queue_t * pQ, size_t size_rec, uint16_t nb_recs, QueueType type, bool overwrite, void * pQDat, size_t lenQDat)`:
+  - `pQ` - pointer to the queue struct
+  - `size_rec` - size of a record in the queue
+  - `nb_recs` - number of records in the queue
+  - `type` - queue implementation type: `FIFO`, `LIFO`
+  - `overwrite` - overwrite previous records when queue is full if set to `true`
+  - `pQDat` - pointer to static data queue
+  - `lenQDat` - length of static data queue (in bytes)
+- Push stuff to the queue using `q_push(Queue_t * pQ, void * rec)`
   - returns `true` if successfully pushed into queue
   - returns `false` is queue is full
-- Pop stuff from the queue using `q_pop(Queue_t * q, void * rec)` or `q_pull(Queue_t * q, void * rec)`
+- Pop stuff from the queue using `q_pop(Queue_t * pQ, void * rec)` or `q_pull(Queue_t * pQ, void * rec)`
   - returns `true` if successfully popped from queue
   - returns `false` if queue is empty
-- Peek stuff from the queue using `q_peek(Queue_t * q, void * rec)`
+- Peek stuff from the queue using `q_peek(Queue_t * pQ, void * rec)`
   - returns `true` if successfully peeked from queue
   - returns `false` if queue is empty
-- Drop stuff from the queue using `q_drop(Queue_t * q)`
+- Drop stuff from the queue using `q_drop(Queue_t * pQ)`
   - returns `true` if successfully dropped from queue
   - returns `false` if queue is empty
-- Peek stuff at index from the queue using `q_peekIdx(Queue_t * q, void * rec, uint16_t idx)`
+- Peek stuff at index from the queue using `q_peekIdx(Queue_t * pQ, void * rec, uint16_t idx)`
   - returns `true` if successfully peeked from queue
   - returns `false` if index is out of range
   - warning: no associated drop function, not to use with `q_drop`
-- Peek latest stored from the queue using `q_peekPrevious(Queue_t * q, void * rec)`
+- Peek latest stored from the queue using `q_peekPrevious(Queue_t * pQ, void * rec)`
   - returns `true` if successfully peeked from queue
   - returns `false` if queue is empty
   - warning: no associated drop function, not to use with `q_drop`
   - note: only useful with FIFO implementation, use `q_peek` instead with a LIFO
 - Other methods:
-  - `q_isInitialized(Queue_t * q)`: `true` if initialized properly, `false` otherwise
-  - `q_isEmpty(Queue_t * q)`: `true` if empty, `false` otherwise
-  - `q_isFull(Queue_t * q)`: `true` if full, `false` otherwise
-  - `q_sizeof(Queue_t * q)`: queue size in bytes (returns 0 in case queue allocation failed)
-  - `q_getCount(Queue_t * q)` or `q_nbRecs(Queue_t * q)`: number of records stored in the queue
-  - `q_getRemainingCount(Queue_t * q)`: number of records left in the queue
-  - `q_clean(Queue_t * q)` or `q_flush(Queue_t * q)`: remove all items in the queue
+  - `q_isInitialized(Queue_t * pQ)`: `true` if initialized properly, `false` otherwise
+  - `q_isEmpty(Queue_t * pQ)`: `true` if empty, `false` otherwise
+  - `q_isFull(Queue_t * pQ)`: `true` if full, `false` otherwise
+  - `q_sizeof(Queue_t * pQ)`: queue size in bytes (returns 0 in case queue allocation failed)
+  - `q_getCount(Queue_t * pQ)` or `q_nbRecs(Queue_t * pQ)`: number of records stored in the queue
+  - `q_getRemainingCount(Queue_t * pQ)`: number of records left in the queue
+  - `q_clean(Queue_t * pQ)` or `q_flush(Queue_t * pQ)`: remove all items in the queue
 
 ## Notes
 

@@ -1,8 +1,8 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017-2019, SMFSW
-** \brief Queue handling library (designed in c on STM32)
-** \details Queue handling library (designed in c on STM32)
+** \copyright BSD 3-Clause License (c) 2017-2022, SMFSW
+** \brief Queue handling library (written in plain c)
+** \details Queue handling library (written in plain c)
 **/
 /****************************************************************/
 #ifndef __CQUEUE_H
@@ -41,9 +41,10 @@ typedef enum enumQueueType {
 typedef struct Queue_t {
 	QueueType	impl;		//!< Queue implementation: FIFO LIFO
 	bool		ovw;		//!< Overwrite previous records when queue is full allowed
+	bool		dynamic;	//!< Set to true when queue is dynamically allocated
+	size_t		queue_sz;	//!< Size of the full queue
+	size_t		rec_sz;		//!< Size of a record
 	uint16_t	rec_nb;		//!< number of records in the queue
-	uint16_t	rec_sz;		//!< Size of a record
-	uint32_t	queue_sz;	//!< Size of the full queue
 	uint8_t *	queue;		//!< Queue start pointer (when allocated)
 
 	uint16_t	in;			//!< number of records pushed into the queue
@@ -53,146 +54,163 @@ typedef struct Queue_t {
 } Queue_t;
 
 
-/*!	\brief Queue initialization
-**	\param [in,out] q - pointer of queue to handle
-**	\param [in] size_rec - size of a record in the queue
+/*!	\brief Queue initialization (using dynamic queue allocation)
+**	\param [in,out] pQ - pointer of queue to handle
+**	\param [in] size_rec - size of a record in the queue (in bytes)
 **	\param [in] nb_recs - number of records in the queue
 **	\param [in] type - Queue implementation type: FIFO, LIFO
 **	\param [in] overwrite - Overwrite previous records when queue is full
 **	\return NULL when allocation not possible, Queue tab address when successful
 **/
-void * __attribute__((nonnull)) q_init(Queue_t * const q, const uint16_t size_rec, const uint16_t nb_recs, const QueueType type, const bool overwrite);
+void * __attribute__((nonnull)) q_init(	Queue_t * const pQ,
+										const size_t size_rec, const uint16_t nb_recs,
+										const QueueType type, const bool overwrite);
+
+/*!	\brief Queue initialization (using static queue)
+**	\param [in,out] pQ - pointer of queue to handle
+**	\param [in] size_rec - size of a record in the queue (in bytes)
+**	\param [in] nb_recs - number of records in the queue
+**	\param [in] type - Queue implementation type: FIFO, LIFO
+**	\param [in] overwrite - Overwrite previous records when queue is full
+**	\param [in] pQDat - Pointer to static data queue
+**	\param [in] lenQDat - Length of static data queue (in bytes) for static array size check against required size for queue
+**	\return Queue tab address (to remain consistent with \ref q_init)
+**/
+void * __attribute__((nonnull)) q_init_static(	Queue_t * const pQ,
+												const size_t size_rec, const uint16_t nb_recs,
+												const QueueType type, const bool overwrite,
+												void * const pQDat, const size_t lenQDat);
 
 /*!	\brief Queue destructor: release dynamically allocated queue
-**	\param [in,out] q - pointer of queue to handle
+**	\param [in,out] pQ - pointer of queue to handle
 **/
-void __attribute__((nonnull)) q_kill(Queue_t * const q);
+void __attribute__((nonnull)) q_kill(Queue_t * const pQ);
 
 /*!	\brief Flush queue, restarting from empty queue
-**	\param [in,out] q - pointer of queue to handle
+**	\param [in,out] pQ - pointer of queue to handle
 **/
-void __attribute__((nonnull)) q_flush(Queue_t * const q);
+void __attribute__((nonnull)) q_flush(Queue_t * const pQ);
 
 /*!	\brief get initialization state of the queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Queue initialization status
 **	\retval true if queue is allocated
 **	\retval false is queue is not allocated
 **/
-inline bool __attribute__((nonnull, always_inline)) q_isInitialized(const Queue_t * const q) {
-	return (q->init == QUEUE_INITIALIZED) ? true : false; }
+inline bool __attribute__((nonnull, always_inline)) q_isInitialized(const Queue_t * const pQ) {
+	return (pQ->init == QUEUE_INITIALIZED) ? true : false; }
 
 /*!	\brief get emptiness state of the queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Queue emptiness status
 **	\retval true if queue is empty
 **	\retval false is not empty
 **/
-inline bool __attribute__((nonnull, always_inline)) q_isEmpty(const Queue_t * const q) {
-	return (!q->cnt) ? true : false; }
+inline bool __attribute__((nonnull, always_inline)) q_isEmpty(const Queue_t * const pQ) {
+	return (!pQ->cnt) ? true : false; }
 
 /*!	\brief get fullness state of the queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Queue fullness status
 **	\retval true if queue is full
 **	\retval false is not full
 **/
-inline bool __attribute__((nonnull, always_inline)) q_isFull(const Queue_t * const q) {
-	return (q->cnt == q->rec_nb) ? true : false; }
+inline bool __attribute__((nonnull, always_inline)) q_isFull(const Queue_t * const pQ) {
+	return (pQ->cnt == pQ->rec_nb) ? true : false; }
 
 /*!	\brief get size of queue
 **	\remark Size in bytes (like sizeof)
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Size of queue in bytes
 **/
-inline uint32_t __attribute__((nonnull, always_inline)) q_sizeof(const Queue_t * const q) {
-	return q->queue_sz; }
+inline uint32_t __attribute__((nonnull, always_inline)) q_sizeof(const Queue_t * const pQ) {
+	return pQ->queue_sz; }
 
 /*!	\brief get number of records in the queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Number of records stored in the queue
 **/
-inline uint16_t __attribute__((nonnull, always_inline)) q_getCount(const Queue_t * const q) {
-	return q->cnt; }
+inline uint16_t __attribute__((nonnull, always_inline)) q_getCount(const Queue_t * const pQ) {
+	return pQ->cnt; }
 
 /*!	\brief get number of records left in the queue
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\return Number of records left in the queue
 **/
-inline uint16_t __attribute__((nonnull, always_inline)) q_getRemainingCount(const Queue_t * const q) {
-	return q->rec_nb - q->cnt; }
+inline uint16_t __attribute__((nonnull, always_inline)) q_getRemainingCount(const Queue_t * const pQ) {
+	return pQ->rec_nb - pQ->cnt; }
 
 /*!	\brief Push record to queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
-**	\param [in,out] q - pointer of queue to handle
+**	\param [in,out] pQ - pointer of queue to handle
 **	\param [in] record - pointer to record to be pushed into queue
 **	\return Push status
 **	\retval true if successfully pushed into queue
 **	\retval false if queue is full
 **/
-bool __attribute__((nonnull)) q_push(Queue_t * const q, const void * const record);
+bool __attribute__((nonnull)) q_push(Queue_t * const pQ, const void * const record);
 
 /*!	\brief Pop record from queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be popped from queue
 **	\return Pop status
 **	\retval true if successfully pulled from queue
 **	\retval false if queue is empty
 **/
-bool __attribute__((nonnull)) q_pop(Queue_t * const q, void * const record);
+bool __attribute__((nonnull)) q_pop(Queue_t * const pQ, void * const record);
 
 /*!	\brief Peek record from queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
 **	\note This function is most likely to be used in conjunction with q_drop
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be peeked from queue
 **	\return Peek status
 **	\retval true if successfully peeked from queue
 **	\retval false if queue is empty
 **/
-bool __attribute__((nonnull)) q_peek(const Queue_t * const q, void * const record);
+bool __attribute__((nonnull)) q_peek(const Queue_t * const pQ, void * const record);
 
 /*!	\brief Drop current record from queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
 **	\note This function is most likely to be used in conjunction with q_peek
-**	\param [in,out] q - pointer of queue to handle
+**	\param [in,out] pQ - pointer of queue to handle
 **	\return drop status
 **	\retval true if successfully dropped from queue
 **	\retval false if queue is empty
 **/
-bool __attribute__((nonnull)) q_drop(Queue_t * const q);
+bool __attribute__((nonnull)) q_drop(Queue_t * const pQ);
 
 /*!	\brief Peek record at index from queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
 **	\note This function is only useful if searching for a duplicate record and shouldn't be used in conjunction with q_drop
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be peeked from queue
 **	\param [in] idx - index of the record to pick
 **	\return Peek status
 **	\retval true if successfully peeked from queue
 **	\retval false if index is out of range
 **/
-bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const q, void * const record, const uint16_t idx);
+bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const pQ, void * const record, const uint16_t idx);
 
 /*!	\brief Peek previous record from queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
 **				you shall disable interrupts in main application when using these functions
 **	\note This inline is only useful with FIFO implementation, use q_peek instead with a LIFO (will lead to the same result)
-**	\param [in] q - pointer of queue to handle
+**	\param [in] pQ - pointer of queue to handle
 **	\param [in,out] record - pointer to record to be peeked from queue
 **	\return Peek status
 **	\retval true if successfully peeked from queue
 **	\retval false if queue is empty
 **/
-inline bool __attribute__((nonnull, always_inline)) q_peekPrevious(const Queue_t * const q, void * const record) {
-	const uint16_t idx = q_getCount(q) - 1;	// No worry about count - 1 when queue is empty, test is done by q_peekIdx
-	return q_peekIdx(q, record, idx); }
+inline bool __attribute__((nonnull, always_inline)) q_peekPrevious(const Queue_t * const pQ, void * const record) {
+	const uint16_t idx = q_getCount(pQ) - 1;	// No worry about count - 1 when queue is empty, test is done by q_peekIdx
+	return q_peekIdx(pQ, record, idx); }
 
 
 /****************************************************************/

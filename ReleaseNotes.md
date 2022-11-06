@@ -1,5 +1,5 @@
 cQueue: Queue handling library (written in plain c)
-2017-2019 SMFSW
+2017-2022 SMFSW
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
@@ -9,6 +9,13 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 ------------
 
 ** Actual:
+
+v1.8:	5 Nov 2022:
+- q_init_static function added to setup a queue from statically allocated data area
+- q_init and q_kill refactoring for consistency and robustness (when using queue functions regardless init performed with success)
+- Doxyfiles update
+- Outdated travisCI status in README.md removed
+- LICENSE years update
 
 v1.7:	2 Dec 2019:
 - Fix wrong github tag leading to no update by Arduino Library Manager (v1.5 is tagged as v1.6 in library.properties)
