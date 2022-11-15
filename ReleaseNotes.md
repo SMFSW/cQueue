@@ -10,7 +10,8 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 
 ** Actual:
 
-v1.8:	5 Nov 2022:
+v1.8:	15 Nov 2022:
+- SimpleQueueStatic.ino example added
 - q_init_static function added to setup a queue from statically allocated data area
 - q_init and q_kill refactoring for consistency and robustness (when using queue functions regardless init performed with success)
 - Doxyfiles update
