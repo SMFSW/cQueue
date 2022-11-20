@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['enumqueuetype',['enumQueueType',['../c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2',1,'cQueue.h']]]
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
+  ['dynamic',['dynamic',['../struct_queue__t.html#a3b3bd1e91b5a0265c72123f3e238dd41',1,'Queue_t']]]
 ];

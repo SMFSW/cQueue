@@ -1,4 +1,0 @@
-<map id="q_init" name="q_init">
-<area shape="rect" id="node2" href="$c_queue_8c.html#a74b428a5331c325de28b7f64621851fe" title="Queue destructor: release dynamically allocated queue. " alt="" coords="116,5,169,32"/>
-<area shape="rect" id="node3" href="$c_queue_8c.html#a7819c6b27a12441d7658485996510358" title="Flush queue, restarting from empty queue. " alt="" coords="109,56,176,83"/>
-</map>

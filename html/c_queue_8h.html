@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">cQueue
-   &#160;<span id="projectnumber">1.7</span>
+   &#160;<span id="projectnumber">1.8</span>
    </div>
    <div id="projectbrief">Queue handling library (written in plain c)</div>
   </td>
@@ -75,7 +75,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Queue handling library (designed in c on STM32)  
+<p>Queue handling library (written in plain c)  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
@@ -84,14 +84,6 @@ Include dependency graph for cQueue.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="c_queue_8h__incl.png" border="0" usemap="#src_2c_queue_8h" alt=""/></div>
 <map name="src_2c_queue_8h" id="src_2c_queue_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="c_queue_8h__dep__incl.png" border="0" usemap="#src_2c_queue_8hdep" alt=""/></div>
-<map name="src_2c_queue_8hdep" id="src_2c_queue_8hdep">
-<area shape="rect" id="node2" href="c_queue_8c.html" title="Queue handling library (designed in c on STM32) " alt="" coords="6,80,111,107"/>
 </map>
 </div>
 </div>
@@ -108,14 +100,14 @@ Macros</h2></td></tr>
 <tr class="memitem:ac2d7a2672ce7ea2565f4b909ae8d8454"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#ac2d7a2672ce7ea2565f4b909ae8d8454">QUEUE_INITIALIZED</a>&#160;&#160;&#160;0x5AA5</td></tr>
 <tr class="memdesc:ac2d7a2672ce7ea2565f4b909ae8d8454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue initialized control value.  <a href="#ac2d7a2672ce7ea2565f4b909ae8d8454">More...</a><br /></td></tr>
 <tr class="separator:ac2d7a2672ce7ea2565f4b909ae8d8454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6804d0a348bcb7154aace7ccc38681e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a6804d0a348bcb7154aace7ccc38681e1">q_init_def</a>(q,  sz)&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a8dc8ffc28dfc91f42e228d92ad005ddf">q_init</a>(q, sz, 20, <a class="el" href="c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2a7795ebef271efe70b28f37deb9a07a83">FIFO</a>, false)</td></tr>
+<tr class="memitem:a6804d0a348bcb7154aace7ccc38681e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a6804d0a348bcb7154aace7ccc38681e1">q_init_def</a>(<a class="el" href="zero_2_simple_queue_static_2sketch_2_simple_queue_static_8ino_8cpp.html#acc3d7b1b496ba65380527ba8e50f0f82">q</a>,  sz)&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad">q_init</a>(<a class="el" href="zero_2_simple_queue_static_2sketch_2_simple_queue_static_8ino_8cpp.html#acc3d7b1b496ba65380527ba8e50f0f82">q</a>, sz, 20, <a class="el" href="c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2a7795ebef271efe70b28f37deb9a07a83">FIFO</a>, false)</td></tr>
 <tr class="memdesc:a6804d0a348bcb7154aace7ccc38681e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some kind of average default for queue initialization.  <a href="#a6804d0a348bcb7154aace7ccc38681e1">More...</a><br /></td></tr>
 <tr class="separator:a6804d0a348bcb7154aace7ccc38681e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf91df2441e488b3226b501f9c459494"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#adf91df2441e488b3226b501f9c459494">q_pull</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a88ed8ebbf91280f1e68cfe442ce4f854">q_pop</a></td></tr>
+<tr class="memitem:adf91df2441e488b3226b501f9c459494"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#adf91df2441e488b3226b501f9c459494">q_pull</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677">q_pop</a></td></tr>
 <tr class="separator:adf91df2441e488b3226b501f9c459494"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad978814a0d9284398a0ba0b9f234c4f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#ad978814a0d9284398a0ba0b9f234c4f0">q_nbRecs</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db">q_getCount</a></td></tr>
+<tr class="memitem:ad978814a0d9284398a0ba0b9f234c4f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#ad978814a0d9284398a0ba0b9f234c4f0">q_nbRecs</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c">q_getCount</a></td></tr>
 <tr class="separator:ad978814a0d9284398a0ba0b9f234c4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a570b417df3e45ce8b7f6fa5fa96cae27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a570b417df3e45ce8b7f6fa5fa96cae27">q_clean</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a7819c6b27a12441d7658485996510358">q_flush</a></td></tr>
+<tr class="memitem:a570b417df3e45ce8b7f6fa5fa96cae27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a570b417df3e45ce8b7f6fa5fa96cae27">q_clean</a>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a8a24d119b3b4d26c9161474369343a79">q_flush</a></td></tr>
 <tr class="separator:a570b417df3e45ce8b7f6fa5fa96cae27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -135,57 +127,60 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8dc8ffc28dfc91f42e228d92ad005ddf"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a8dc8ffc28dfc91f42e228d92ad005ddf">q_init</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q, const uint16_t size_rec, const uint16_t nb_recs, const <a class="el" href="c_queue_8h.html#ac8f074d44698ea46a2cb3ed102f6254a">QueueType</a> type, const bool overwrite)</td></tr>
-<tr class="memdesc:a8dc8ffc28dfc91f42e228d92ad005ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue initialization.  <a href="#a8dc8ffc28dfc91f42e228d92ad005ddf">More...</a><br /></td></tr>
-<tr class="separator:a8dc8ffc28dfc91f42e228d92ad005ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74b428a5331c325de28b7f64621851fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a74b428a5331c325de28b7f64621851fe">q_kill</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a74b428a5331c325de28b7f64621851fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue destructor: release dynamically allocated queue.  <a href="#a74b428a5331c325de28b7f64621851fe">More...</a><br /></td></tr>
-<tr class="separator:a74b428a5331c325de28b7f64621851fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7819c6b27a12441d7658485996510358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a7819c6b27a12441d7658485996510358">q_flush</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a7819c6b27a12441d7658485996510358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush queue, restarting from empty queue.  <a href="#a7819c6b27a12441d7658485996510358">More...</a><br /></td></tr>
-<tr class="separator:a7819c6b27a12441d7658485996510358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed00ef47ebf0182d98431f43aa674e0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#aed00ef47ebf0182d98431f43aa674e0b">q_isInitialized</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:aed00ef47ebf0182d98431f43aa674e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get initialization state of the queue  <a href="#aed00ef47ebf0182d98431f43aa674e0b">More...</a><br /></td></tr>
-<tr class="separator:aed00ef47ebf0182d98431f43aa674e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f771f4607edeb5b21f2a2fb89127537"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a8f771f4607edeb5b21f2a2fb89127537">q_isEmpty</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a8f771f4607edeb5b21f2a2fb89127537"><td class="mdescLeft">&#160;</td><td class="mdescRight">get emptiness state of the queue  <a href="#a8f771f4607edeb5b21f2a2fb89127537">More...</a><br /></td></tr>
-<tr class="separator:a8f771f4607edeb5b21f2a2fb89127537"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ad4e8aed9a26265980b4cb76ac7ca8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a08ad4e8aed9a26265980b4cb76ac7ca8">q_isFull</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a08ad4e8aed9a26265980b4cb76ac7ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get fullness state of the queue  <a href="#a08ad4e8aed9a26265980b4cb76ac7ca8">More...</a><br /></td></tr>
-<tr class="separator:a08ad4e8aed9a26265980b4cb76ac7ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a252ed831a910dfcebbc4e641d84f6552"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a252ed831a910dfcebbc4e641d84f6552">q_sizeof</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a252ed831a910dfcebbc4e641d84f6552"><td class="mdescLeft">&#160;</td><td class="mdescRight">get size of queue  <a href="#a252ed831a910dfcebbc4e641d84f6552">More...</a><br /></td></tr>
-<tr class="separator:a252ed831a910dfcebbc4e641d84f6552"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c2519717ebc6064c0bd32c0e87da8db"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db">q_getCount</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a3c2519717ebc6064c0bd32c0e87da8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of records in the queue  <a href="#a3c2519717ebc6064c0bd32c0e87da8db">More...</a><br /></td></tr>
-<tr class="separator:a3c2519717ebc6064c0bd32c0e87da8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f1f6db6d2bff0e3cceda236a41a1e7f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f">q_getRemainingCount</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:a6f1f6db6d2bff0e3cceda236a41a1e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of records left in the queue  <a href="#a6f1f6db6d2bff0e3cceda236a41a1e7f">More...</a><br /></td></tr>
-<tr class="separator:a6f1f6db6d2bff0e3cceda236a41a1e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab36ff9a52c769ebc2c52f96f309cc11b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#ab36ff9a52c769ebc2c52f96f309cc11b">q_push</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q, const void *const record)</td></tr>
-<tr class="memdesc:ab36ff9a52c769ebc2c52f96f309cc11b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push record to queue.  <a href="#ab36ff9a52c769ebc2c52f96f309cc11b">More...</a><br /></td></tr>
-<tr class="separator:ab36ff9a52c769ebc2c52f96f309cc11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88ed8ebbf91280f1e68cfe442ce4f854"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a88ed8ebbf91280f1e68cfe442ce4f854">q_pop</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q, void *const record)</td></tr>
-<tr class="memdesc:a88ed8ebbf91280f1e68cfe442ce4f854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop record from queue.  <a href="#a88ed8ebbf91280f1e68cfe442ce4f854">More...</a><br /></td></tr>
-<tr class="separator:a88ed8ebbf91280f1e68cfe442ce4f854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a924da96abe35d99289d7ba0259e75152"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a924da96abe35d99289d7ba0259e75152">q_peek</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q, void *const record)</td></tr>
-<tr class="memdesc:a924da96abe35d99289d7ba0259e75152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek record from queue.  <a href="#a924da96abe35d99289d7ba0259e75152">More...</a><br /></td></tr>
-<tr class="separator:a924da96abe35d99289d7ba0259e75152"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd6c01a4099416472d7ddf1e56925584"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#acd6c01a4099416472d7ddf1e56925584">q_drop</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const q)</td></tr>
-<tr class="memdesc:acd6c01a4099416472d7ddf1e56925584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drop current record from queue.  <a href="#acd6c01a4099416472d7ddf1e56925584">More...</a><br /></td></tr>
-<tr class="separator:acd6c01a4099416472d7ddf1e56925584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abba53b4124d6b391507e8db6b201767b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#abba53b4124d6b391507e8db6b201767b">q_peekIdx</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q, void *const record, const uint16_t idx)</td></tr>
-<tr class="memdesc:abba53b4124d6b391507e8db6b201767b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek record at index from queue.  <a href="#abba53b4124d6b391507e8db6b201767b">More...</a><br /></td></tr>
-<tr class="separator:abba53b4124d6b391507e8db6b201767b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a928546b46a5b80fb6fff382f691d3fda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a928546b46a5b80fb6fff382f691d3fda">q_peekPrevious</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const q, void *const record)</td></tr>
-<tr class="memdesc:a928546b46a5b80fb6fff382f691d3fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek previous record from queue.  <a href="#a928546b46a5b80fb6fff382f691d3fda">More...</a><br /></td></tr>
-<tr class="separator:a928546b46a5b80fb6fff382f691d3fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8cfac945c37e6c1ed6c1950099059ad"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad">q_init</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, const size_t size_rec, const uint16_t nb_recs, const <a class="el" href="c_queue_8h.html#ac8f074d44698ea46a2cb3ed102f6254a">QueueType</a> type, const bool overwrite)</td></tr>
+<tr class="memdesc:af8cfac945c37e6c1ed6c1950099059ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue initialization (using dynamic queue allocation)  <a href="#af8cfac945c37e6c1ed6c1950099059ad">More...</a><br /></td></tr>
+<tr class="separator:af8cfac945c37e6c1ed6c1950099059ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a139efe75ea4da89ed41e6a77e7f25721"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a139efe75ea4da89ed41e6a77e7f25721">q_init_static</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, const size_t size_rec, const uint16_t nb_recs, const <a class="el" href="c_queue_8h.html#ac8f074d44698ea46a2cb3ed102f6254a">QueueType</a> type, const bool overwrite, void *const pQDat, const size_t lenQDat)</td></tr>
+<tr class="memdesc:a139efe75ea4da89ed41e6a77e7f25721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue initialization (using static queue)  <a href="#a139efe75ea4da89ed41e6a77e7f25721">More...</a><br /></td></tr>
+<tr class="separator:a139efe75ea4da89ed41e6a77e7f25721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ef862202ab2ad80e50dde6a4f5e1a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a37ef862202ab2ad80e50dde6a4f5e1a6">q_kill</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a37ef862202ab2ad80e50dde6a4f5e1a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue destructor: release dynamically allocated queue.  <a href="#a37ef862202ab2ad80e50dde6a4f5e1a6">More...</a><br /></td></tr>
+<tr class="separator:a37ef862202ab2ad80e50dde6a4f5e1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a24d119b3b4d26c9161474369343a79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a8a24d119b3b4d26c9161474369343a79">q_flush</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a8a24d119b3b4d26c9161474369343a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush queue, restarting from empty queue.  <a href="#a8a24d119b3b4d26c9161474369343a79">More...</a><br /></td></tr>
+<tr class="separator:a8a24d119b3b4d26c9161474369343a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359b94b9137965972c0aa0acb16bb7cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a359b94b9137965972c0aa0acb16bb7cc">q_isInitialized</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a359b94b9137965972c0aa0acb16bb7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">get initialization state of the queue  <a href="#a359b94b9137965972c0aa0acb16bb7cc">More...</a><br /></td></tr>
+<tr class="separator:a359b94b9137965972c0aa0acb16bb7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a628fb5fdbc98f2e78bf72f4d91f5afc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a628fb5fdbc98f2e78bf72f4d91f5afc1">q_isEmpty</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a628fb5fdbc98f2e78bf72f4d91f5afc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">get emptiness state of the queue  <a href="#a628fb5fdbc98f2e78bf72f4d91f5afc1">More...</a><br /></td></tr>
+<tr class="separator:a628fb5fdbc98f2e78bf72f4d91f5afc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66498381f5e0865ab94d7d0b84c2c8f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a66498381f5e0865ab94d7d0b84c2c8f8">q_isFull</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a66498381f5e0865ab94d7d0b84c2c8f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get fullness state of the queue  <a href="#a66498381f5e0865ab94d7d0b84c2c8f8">More...</a><br /></td></tr>
+<tr class="separator:a66498381f5e0865ab94d7d0b84c2c8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14cdff776a46c169180bbc7cb562a586"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a14cdff776a46c169180bbc7cb562a586">q_sizeof</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a14cdff776a46c169180bbc7cb562a586"><td class="mdescLeft">&#160;</td><td class="mdescRight">get size of queue  <a href="#a14cdff776a46c169180bbc7cb562a586">More...</a><br /></td></tr>
+<tr class="separator:a14cdff776a46c169180bbc7cb562a586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee07f3bb019d468e8dee33cf85f5841c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c">q_getCount</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:aee07f3bb019d468e8dee33cf85f5841c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of records in the queue  <a href="#aee07f3bb019d468e8dee33cf85f5841c">More...</a><br /></td></tr>
+<tr class="separator:aee07f3bb019d468e8dee33cf85f5841c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723949859e2ec7e94d6be070a19a1616"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616">q_getRemainingCount</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:a723949859e2ec7e94d6be070a19a1616"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of records left in the queue  <a href="#a723949859e2ec7e94d6be070a19a1616">More...</a><br /></td></tr>
+<tr class="separator:a723949859e2ec7e94d6be070a19a1616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3329ab824b9c78b9173d15aad796db46"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a3329ab824b9c78b9173d15aad796db46">q_push</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, const void *const record)</td></tr>
+<tr class="memdesc:a3329ab824b9c78b9173d15aad796db46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push record to queue.  <a href="#a3329ab824b9c78b9173d15aad796db46">More...</a><br /></td></tr>
+<tr class="separator:a3329ab824b9c78b9173d15aad796db46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8d0b95c08c471387f58bf89d1bd677"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677">q_pop</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, void *const record)</td></tr>
+<tr class="memdesc:abf8d0b95c08c471387f58bf89d1bd677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop record from queue.  <a href="#abf8d0b95c08c471387f58bf89d1bd677">More...</a><br /></td></tr>
+<tr class="separator:abf8d0b95c08c471387f58bf89d1bd677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca3bab452e93e74c697afe4d435255f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a3ca3bab452e93e74c697afe4d435255f">q_peek</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, void *const record)</td></tr>
+<tr class="memdesc:a3ca3bab452e93e74c697afe4d435255f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek record from queue.  <a href="#a3ca3bab452e93e74c697afe4d435255f">More...</a><br /></td></tr>
+<tr class="separator:a3ca3bab452e93e74c697afe4d435255f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab47137c61a0fdcccc31bfad02c3dcded"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#ab47137c61a0fdcccc31bfad02c3dcded">q_drop</a> (<a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ)</td></tr>
+<tr class="memdesc:ab47137c61a0fdcccc31bfad02c3dcded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drop current record from queue.  <a href="#ab47137c61a0fdcccc31bfad02c3dcded">More...</a><br /></td></tr>
+<tr class="separator:ab47137c61a0fdcccc31bfad02c3dcded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8307cfba00877f668fac62f6dbd7e5d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a8307cfba00877f668fac62f6dbd7e5d7">q_peekIdx</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, void *const record, const uint16_t idx)</td></tr>
+<tr class="memdesc:a8307cfba00877f668fac62f6dbd7e5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek record at index from queue.  <a href="#a8307cfba00877f668fac62f6dbd7e5d7">More...</a><br /></td></tr>
+<tr class="separator:a8307cfba00877f668fac62f6dbd7e5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897b1eea36d04ab4953966c452016470"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c_queue_8h.html#a897b1eea36d04ab4953966c452016470">q_peekPrevious</a> (const <a class="el" href="struct_queue__t.html">Queue_t</a> *const pQ, void *const record)</td></tr>
+<tr class="memdesc:a897b1eea36d04ab4953966c452016470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peek previous record from queue.  <a href="#a897b1eea36d04ab4953966c452016470">More...</a><br /></td></tr>
+<tr class="separator:a897b1eea36d04ab4953966c452016470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Queue handling library (designed in c on STM32) </p>
+<div class="textblock"><p>Queue handling library (written in plain c) </p>
 <dl class="section author"><dt>Author</dt><dd>SMFSW </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>BSD 3-Clause License (c) 2017-2019, SMFSW</dd></dl>
-<p>Queue handling library (designed in c on STM32) </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>BSD 3-Clause License (c) 2017-2022, SMFSW</dd></dl>
+<p>Queue handling library (written in plain c) </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a570b417df3e45ce8b7f6fa5fa96cae27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a570b417df3e45ce8b7f6fa5fa96cae27">&#9670;&nbsp;</a></span>q_clean</h2>
@@ -194,7 +189,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define q_clean&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a7819c6b27a12441d7658485996510358">q_flush</a></td>
+          <td class="memname">#define q_clean&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a8a24d119b3b4d26c9161474369343a79">q_flush</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -212,7 +207,7 @@ Functions</h2></td></tr>
           <td class="memname">#define q_init_def</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">q, </td>
+          <td class="paramname"><a class="el" href="zero_2_simple_queue_static_2sketch_2_simple_queue_static_8ino_8cpp.html#acc3d7b1b496ba65380527ba8e50f0f82">q</a>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -223,7 +218,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a8dc8ffc28dfc91f42e228d92ad005ddf">q_init</a>(q, sz, 20, <a class="el" href="c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2a7795ebef271efe70b28f37deb9a07a83">FIFO</a>, false)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad">q_init</a>(<a class="el" href="zero_2_simple_queue_static_2sketch_2_simple_queue_static_8ino_8cpp.html#acc3d7b1b496ba65380527ba8e50f0f82">q</a>, sz, 20, <a class="el" href="c_queue_8h.html#a72b82c7edec5309feb4e07c40d80bcb2a7795ebef271efe70b28f37deb9a07a83">FIFO</a>, false)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -239,7 +234,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define q_nbRecs&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db">q_getCount</a></td>
+          <td class="memname">#define q_nbRecs&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c">q_getCount</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -254,7 +249,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define q_pull&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#a88ed8ebbf91280f1e68cfe442ce4f854">q_pop</a></td>
+          <td class="memname">#define q_pull&#160;&#160;&#160;<a class="el" href="c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677">q_pop</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -331,8 +326,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acd6c01a4099416472d7ddf1e56925584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd6c01a4099416472d7ddf1e56925584">&#9670;&nbsp;</a></span>q_drop()</h2>
+<a id="ab47137c61a0fdcccc31bfad02c3dcded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47137c61a0fdcccc31bfad02c3dcded">&#9670;&nbsp;</a></span>q_drop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +336,7 @@ Functions</h2></td></tr>
           <td class="memname">bool q_drop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -352,7 +347,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This function is most likely to be used in conjunction with q_peek </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -367,24 +362,25 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_cgraph.png" border="0" usemap="#c_queue_8h_acd6c01a4099416472d7ddf1e56925584_cgraph" alt=""/></div>
-<map name="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_cgraph" id="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a8f771f4607edeb5b21f2a2fb89127537" title="get emptiness state of the queue " alt="" coords="120,5,208,32"/>
+<div class="center"><img src="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_cgraph.png" border="0" usemap="#c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_cgraph" alt=""/></div>
+<map name="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_cgraph" id="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a628fb5fdbc98f2e78bf72f4d91f5afc1" title="get emptiness state of the queue " alt="" coords="120,5,208,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_icgraph.png" border="0" usemap="#c_queue_8h_acd6c01a4099416472d7ddf1e56925584_icgraph" alt=""/></div>
-<map name="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_icgraph" id="c_queue_8h_acd6c01a4099416472d7ddf1e56925584_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="120,5,283,32"/>
+<div class="center"><img src="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_icgraph.png" border="0" usemap="#c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_icgraph" alt=""/></div>
+<map name="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_icgraph" id="c_queue_8h_ab47137c61a0fdcccc31bfad02c3dcded_icgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="120,5,283,32"/>
+<area shape="rect" id="node3" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="331,5,380,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a7819c6b27a12441d7658485996510358"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7819c6b27a12441d7658485996510358">&#9670;&nbsp;</a></span>q_flush()</h2>
+<a id="a8a24d119b3b4d26c9161474369343a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a24d119b3b4d26c9161474369343a79">&#9670;&nbsp;</a></span>q_flush()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +389,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">void q_flush </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -402,23 +398,15 @@ Here is the caller graph for this function:</div>
 <p>Flush queue, restarting from empty queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a7819c6b27a12441d7658485996510358_icgraph.png" border="0" usemap="#c_queue_8h_a7819c6b27a12441d7658485996510358_icgraph" alt=""/></div>
-<map name="c_queue_8h_a7819c6b27a12441d7658485996510358_icgraph" id="c_queue_8h_a7819c6b27a12441d7658485996510358_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a8dc8ffc28dfc91f42e228d92ad005ddf" title="Queue initialization. " alt="" coords="120,5,176,32"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="a3c2519717ebc6064c0bd32c0e87da8db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c2519717ebc6064c0bd32c0e87da8db">&#9670;&nbsp;</a></span>q_getCount()</h2>
+<a id="aee07f3bb019d468e8dee33cf85f5841c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee07f3bb019d468e8dee33cf85f5841c">&#9670;&nbsp;</a></span>q_getCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,7 +418,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">uint16_t q_getCount </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -444,7 +432,7 @@ Here is the caller graph for this function:</div>
 <p>get number of records in the queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -452,18 +440,21 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a3c2519717ebc6064c0bd32c0e87da8db_icgraph.png" border="0" usemap="#c_queue_8h_a3c2519717ebc6064c0bd32c0e87da8db_icgraph" alt=""/></div>
-<map name="c_queue_8h_a3c2519717ebc6064c0bd32c0e87da8db_icgraph" id="c_queue_8h_a3c2519717ebc6064c0bd32c0e87da8db_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#abba53b4124d6b391507e8db6b201767b" title="Peek record at index from queue. " alt="" coords="149,5,236,32"/>
-<area shape="rect" id="node4" href="c_queue_8h.html#a928546b46a5b80fb6fff382f691d3fda" title="Peek previous record from queue. " alt="" coords="304,56,427,83"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="284,5,447,32"/>
+<div class="center"><img src="c_queue_8h_aee07f3bb019d468e8dee33cf85f5841c_icgraph.png" border="0" usemap="#c_queue_8h_aee07f3bb019d468e8dee33cf85f5841c_icgraph" alt=""/></div>
+<map name="c_queue_8h_aee07f3bb019d468e8dee33cf85f5841c_icgraph" id="c_queue_8h_aee07f3bb019d468e8dee33cf85f5841c_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="495,26,544,53"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a8307cfba00877f668fac62f6dbd7e5d7" title="Peek record at index from queue. " alt="" coords="149,77,236,104"/>
+<area shape="rect" id="node6" href="c_queue_8h.html#a897b1eea36d04ab4953966c452016470" title="Peek previous record from queue. " alt="" coords="304,128,427,154"/>
+<area shape="rect" id="node4" href="esp32_2_queue_idx_peeking_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="341,26,390,53"/>
+<area shape="rect" id="node5" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="284,77,447,104"/>
+<area shape="rect" id="node7" href="esp32_2_queue_duplicates_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="495,128,544,154"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6f1f6db6d2bff0e3cceda236a41a1e7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f1f6db6d2bff0e3cceda236a41a1e7f">&#9670;&nbsp;</a></span>q_getRemainingCount()</h2>
+<a id="a723949859e2ec7e94d6be070a19a1616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a723949859e2ec7e94d6be070a19a1616">&#9670;&nbsp;</a></span>q_getRemainingCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,7 +466,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">uint16_t q_getRemainingCount </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -489,7 +480,7 @@ Here is the caller graph for this function:</div>
 <p>get number of records left in the queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -497,23 +488,31 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a6f1f6db6d2bff0e3cceda236a41a1e7f_cgraph.png" border="0" usemap="#c_queue_8h_a6f1f6db6d2bff0e3cceda236a41a1e7f_cgraph" alt=""/></div>
-<map name="c_queue_8h_a6f1f6db6d2bff0e3cceda236a41a1e7f_cgraph" id="c_queue_8h_a6f1f6db6d2bff0e3cceda236a41a1e7f_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#ab36ff9a52c769ebc2c52f96f309cc11b" title="Push record to queue. " alt="" coords="225,5,293,32"/>
-<area shape="rect" id="node4" href="c_queue_8h.html#a88ed8ebbf91280f1e68cfe442ce4f854" title="Pop record from queue. " alt="" coords="229,56,290,83"/>
-<area shape="rect" id="node6" href="c_queue_8h.html#a924da96abe35d99289d7ba0259e75152" title="Peek record from queue. " alt="" coords="225,107,293,133"/>
-<area shape="rect" id="node7" href="c_queue_8h.html#acd6c01a4099416472d7ddf1e56925584" title="Drop current record from queue. " alt="" coords="226,157,293,184"/>
-<area shape="rect" id="node8" href="c_queue_8h.html#abba53b4124d6b391507e8db6b201767b" title="Peek record at index from queue. " alt="" coords="216,208,303,235"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#a08ad4e8aed9a26265980b4cb76ac7ca8" title="get fullness state of the queue " alt="" coords="365,5,432,32"/>
-<area shape="rect" id="node5" href="c_queue_8h.html#a8f771f4607edeb5b21f2a2fb89127537" title="get emptiness state of the queue " alt="" coords="355,107,443,133"/>
-<area shape="rect" id="node9" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db" title="get number of records in the queue " alt="" coords="351,208,447,235"/>
+<div class="center"><img src="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_cgraph.png" border="0" usemap="#c_queue_8h_a723949859e2ec7e94d6be070a19a1616_cgraph" alt=""/></div>
+<map name="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_cgraph" id="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a3329ab824b9c78b9173d15aad796db46" title="Push record to queue. " alt="" coords="225,5,293,32"/>
+<area shape="rect" id="node4" href="c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677" title="Pop record from queue. " alt="" coords="229,56,290,83"/>
+<area shape="rect" id="node6" href="c_queue_8h.html#a3ca3bab452e93e74c697afe4d435255f" title="Peek record from queue. " alt="" coords="225,107,293,133"/>
+<area shape="rect" id="node7" href="c_queue_8h.html#ab47137c61a0fdcccc31bfad02c3dcded" title="Drop current record from queue. " alt="" coords="226,157,293,184"/>
+<area shape="rect" id="node8" href="c_queue_8h.html#a8307cfba00877f668fac62f6dbd7e5d7" title="Peek record at index from queue. " alt="" coords="216,208,303,235"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a66498381f5e0865ab94d7d0b84c2c8f8" title="get fullness state of the queue " alt="" coords="365,5,432,32"/>
+<area shape="rect" id="node5" href="c_queue_8h.html#a628fb5fdbc98f2e78bf72f4d91f5afc1" title="get emptiness state of the queue " alt="" coords="355,107,443,133"/>
+<area shape="rect" id="node9" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c" title="get number of records in the queue " alt="" coords="351,208,447,235"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_icgraph.png" border="0" usemap="#c_queue_8h_a723949859e2ec7e94d6be070a19a1616_icgraph" alt=""/></div>
+<map name="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_icgraph" id="c_queue_8h_a723949859e2ec7e94d6be070a19a1616_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="216,5,265,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a8dc8ffc28dfc91f42e228d92ad005ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dc8ffc28dfc91f42e228d92ad005ddf">&#9670;&nbsp;</a></span>q_init()</h2>
+<a id="af8cfac945c37e6c1ed6c1950099059ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8cfac945c37e6c1ed6c1950099059ad">&#9670;&nbsp;</a></span>q_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,12 +521,12 @@ Here is the call graph for this function:</div>
           <td class="memname">void* q_init </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>size_rec</em>, </td>
         </tr>
         <tr>
@@ -556,11 +555,11 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Queue initialization. </p>
+<p>Queue initialization (using dynamic queue allocation) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_rec</td><td>- size of a record in the queue </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size_rec</td><td>- size of a record in the queue (in bytes) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">nb_recs</td><td>- number of records in the queue </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- Queue implementation type: FIFO, LIFO </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">overwrite</td><td>- Overwrite previous records when queue is full </td></tr>
@@ -571,17 +570,113 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a8dc8ffc28dfc91f42e228d92ad005ddf_cgraph.png" border="0" usemap="#c_queue_8h_a8dc8ffc28dfc91f42e228d92ad005ddf_cgraph" alt=""/></div>
-<map name="c_queue_8h_a8dc8ffc28dfc91f42e228d92ad005ddf_cgraph" id="c_queue_8h_a8dc8ffc28dfc91f42e228d92ad005ddf_cgraph">
-<area shape="rect" id="node2" href="c_queue_8c.html#a74b428a5331c325de28b7f64621851fe" title="Queue destructor: release dynamically allocated queue. " alt="" coords="116,5,169,32"/>
-<area shape="rect" id="node3" href="c_queue_8c.html#a7819c6b27a12441d7658485996510358" title="Flush queue, restarting from empty queue. " alt="" coords="109,56,176,83"/>
+<div class="center"><img src="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_cgraph.png" border="0" usemap="#c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_cgraph" alt=""/></div>
+<map name="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_cgraph" id="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_cgraph">
+<area shape="rect" id="node2" href="c_queue_8c.html#a37ef862202ab2ad80e50dde6a4f5e1a6" title="Queue destructor: release dynamically allocated queue. " alt="" coords="109,5,163,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_icgraph.png" border="0" usemap="#c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_icgraph" alt=""/></div>
+<map name="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_icgraph" id="c_queue_8h_af8cfac945c37e6c1ed6c1950099059ad_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="109,5,168,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a8f771f4607edeb5b21f2a2fb89127537"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f771f4607edeb5b21f2a2fb89127537">&#9670;&nbsp;</a></span>q_isEmpty()</h2>
+<a id="a139efe75ea4da89ed41e6a77e7f25721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a139efe75ea4da89ed41e6a77e7f25721">&#9670;&nbsp;</a></span>q_init_static()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* q_init_static </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
+          <td class="paramname"><em>pQ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>size_rec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>nb_recs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="c_queue_8h.html#ac8f074d44698ea46a2cb3ed102f6254a">QueueType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>overwrite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *const&#160;</td>
+          <td class="paramname"><em>pQDat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>lenQDat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Queue initialization (using static queue) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size_rec</td><td>- size of a record in the queue (in bytes) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_recs</td><td>- number of records in the queue </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- Queue implementation type: FIFO, LIFO </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overwrite</td><td>- Overwrite previous records when queue is full </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQDat</td><td>- Pointer to static data queue </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lenQDat</td><td>- Length of static data queue (in bytes) for static array size check against required size for queue </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Queue tab address (to remain consistent with <a class="el" href="c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad">q_init</a>) </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_cgraph.png" border="0" usemap="#c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_cgraph" alt=""/></div>
+<map name="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_cgraph" id="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_cgraph">
+<area shape="rect" id="node2" href="c_queue_8c.html#a37ef862202ab2ad80e50dde6a4f5e1a6" title="Queue destructor: release dynamically allocated queue. " alt="" coords="152,5,205,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_icgraph.png" border="0" usemap="#c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_icgraph" alt=""/></div>
+<map name="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_icgraph" id="c_queue_8h_a139efe75ea4da89ed41e6a77e7f25721_icgraph">
+<area shape="rect" id="node2" href="esp32_2_simple_queue_static_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="152,5,211,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a628fb5fdbc98f2e78bf72f4d91f5afc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628fb5fdbc98f2e78bf72f4d91f5afc1">&#9670;&nbsp;</a></span>q_isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -593,7 +688,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool q_isEmpty </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -607,7 +702,7 @@ Here is the call graph for this function:</div>
 <p>get emptiness state of the queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -622,19 +717,20 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a8f771f4607edeb5b21f2a2fb89127537_icgraph.png" border="0" usemap="#c_queue_8h_a8f771f4607edeb5b21f2a2fb89127537_icgraph" alt=""/></div>
-<map name="c_queue_8h_a8f771f4607edeb5b21f2a2fb89127537_icgraph" id="c_queue_8h_a8f771f4607edeb5b21f2a2fb89127537_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a88ed8ebbf91280f1e68cfe442ce4f854" title="Pop record from queue. " alt="" coords="145,5,206,32"/>
-<area shape="rect" id="node4" href="c_queue_8h.html#a924da96abe35d99289d7ba0259e75152" title="Peek record from queue. " alt="" coords="141,56,209,83"/>
-<area shape="rect" id="node5" href="c_queue_8h.html#acd6c01a4099416472d7ddf1e56925584" title="Drop current record from queue. " alt="" coords="142,107,209,133"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="257,56,420,83"/>
+<div class="center"><img src="c_queue_8h_a628fb5fdbc98f2e78bf72f4d91f5afc1_icgraph.png" border="0" usemap="#c_queue_8h_a628fb5fdbc98f2e78bf72f4d91f5afc1_icgraph" alt=""/></div>
+<map name="c_queue_8h_a628fb5fdbc98f2e78bf72f4d91f5afc1_icgraph" id="c_queue_8h_a628fb5fdbc98f2e78bf72f4d91f5afc1_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="468,49,517,76"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677" title="Pop record from queue. " alt="" coords="145,24,206,51"/>
+<area shape="rect" id="node5" href="c_queue_8h.html#a3ca3bab452e93e74c697afe4d435255f" title="Peek record from queue. " alt="" coords="141,125,209,152"/>
+<area shape="rect" id="node6" href="c_queue_8h.html#ab47137c61a0fdcccc31bfad02c3dcded" title="Drop current record from queue. " alt="" coords="142,75,209,101"/>
+<area shape="rect" id="node4" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="257,75,420,101"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a08ad4e8aed9a26265980b4cb76ac7ca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ad4e8aed9a26265980b4cb76ac7ca8">&#9670;&nbsp;</a></span>q_isFull()</h2>
+<a id="a66498381f5e0865ab94d7d0b84c2c8f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66498381f5e0865ab94d7d0b84c2c8f8">&#9670;&nbsp;</a></span>q_isFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -646,7 +742,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_isFull </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -660,7 +756,7 @@ Here is the caller graph for this function:</div>
 <p>get fullness state of the queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -675,17 +771,19 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a08ad4e8aed9a26265980b4cb76ac7ca8_icgraph.png" border="0" usemap="#c_queue_8h_a08ad4e8aed9a26265980b4cb76ac7ca8_icgraph" alt=""/></div>
-<map name="c_queue_8h_a08ad4e8aed9a26265980b4cb76ac7ca8_icgraph" id="c_queue_8h_a08ad4e8aed9a26265980b4cb76ac7ca8_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#ab36ff9a52c769ebc2c52f96f309cc11b" title="Push record to queue. " alt="" coords="120,5,188,32"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="236,5,399,32"/>
+<div class="center"><img src="c_queue_8h_a66498381f5e0865ab94d7d0b84c2c8f8_icgraph.png" border="0" usemap="#c_queue_8h_a66498381f5e0865ab94d7d0b84c2c8f8_icgraph" alt=""/></div>
+<map name="c_queue_8h_a66498381f5e0865ab94d7d0b84c2c8f8_icgraph" id="c_queue_8h_a66498381f5e0865ab94d7d0b84c2c8f8_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="447,31,496,57"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a3329ab824b9c78b9173d15aad796db46" title="Push record to queue. " alt="" coords="120,56,188,83"/>
+<area shape="rect" id="node4" href="esp32_2_pointers_queue_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="288,81,347,108"/>
+<area shape="rect" id="node5" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="236,132,399,159"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aed00ef47ebf0182d98431f43aa674e0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed00ef47ebf0182d98431f43aa674e0b">&#9670;&nbsp;</a></span>q_isInitialized()</h2>
+<a id="a359b94b9137965972c0aa0acb16bb7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359b94b9137965972c0aa0acb16bb7cc">&#9670;&nbsp;</a></span>q_isInitialized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -697,7 +795,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_isInitialized </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -711,7 +809,7 @@ Here is the caller graph for this function:</div>
 <p>get initialization state of the queue </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
@@ -726,8 +824,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a74b428a5331c325de28b7f64621851fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74b428a5331c325de28b7f64621851fe">&#9670;&nbsp;</a></span>q_kill()</h2>
+<a id="a37ef862202ab2ad80e50dde6a4f5e1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ef862202ab2ad80e50dde6a4f5e1a6">&#9670;&nbsp;</a></span>q_kill()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -736,7 +834,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">void q_kill </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -745,23 +843,26 @@ Here is the caller graph for this function:</div>
 <p>Queue destructor: release dynamically allocated queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a74b428a5331c325de28b7f64621851fe_icgraph.png" border="0" usemap="#c_queue_8h_a74b428a5331c325de28b7f64621851fe_icgraph" alt=""/></div>
-<map name="c_queue_8h_a74b428a5331c325de28b7f64621851fe_icgraph" id="c_queue_8h_a74b428a5331c325de28b7f64621851fe_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a8dc8ffc28dfc91f42e228d92ad005ddf" title="Queue initialization. " alt="" coords="107,5,163,32"/>
+<div class="center"><img src="c_queue_8h_a37ef862202ab2ad80e50dde6a4f5e1a6_icgraph.png" border="0" usemap="#c_queue_8h_a37ef862202ab2ad80e50dde6a4f5e1a6_icgraph" alt=""/></div>
+<map name="c_queue_8h_a37ef862202ab2ad80e50dde6a4f5e1a6_icgraph" id="c_queue_8h_a37ef862202ab2ad80e50dde6a4f5e1a6_icgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad" title="Queue initialization (using dynamic queue allocation) " alt="" coords="128,5,184,32"/>
+<area shape="rect" id="node4" href="c_queue_8h.html#a139efe75ea4da89ed41e6a77e7f25721" title="Queue initialization (using static queue) " alt="" coords="107,56,205,83"/>
+<area shape="rect" id="node3" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,5,312,32"/>
+<area shape="rect" id="node5" href="esp32_2_simple_queue_static_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,56,312,83"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a924da96abe35d99289d7ba0259e75152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a924da96abe35d99289d7ba0259e75152">&#9670;&nbsp;</a></span>q_peek()</h2>
+<a id="a3ca3bab452e93e74c697afe4d435255f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca3bab452e93e74c697afe4d435255f">&#9670;&nbsp;</a></span>q_peek()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,7 +871,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_peek </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -791,7 +892,7 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>This function is most likely to be used in conjunction with q_drop </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">record</td><td>- pointer to record to be peeked from queue </td></tr>
   </table>
   </dd>
@@ -807,24 +908,25 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a924da96abe35d99289d7ba0259e75152_cgraph.png" border="0" usemap="#c_queue_8h_a924da96abe35d99289d7ba0259e75152_cgraph" alt=""/></div>
-<map name="c_queue_8h_a924da96abe35d99289d7ba0259e75152_cgraph" id="c_queue_8h_a924da96abe35d99289d7ba0259e75152_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a8f771f4607edeb5b21f2a2fb89127537" title="get emptiness state of the queue " alt="" coords="121,5,209,32"/>
+<div class="center"><img src="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_cgraph.png" border="0" usemap="#c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_cgraph" alt=""/></div>
+<map name="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_cgraph" id="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a628fb5fdbc98f2e78bf72f4d91f5afc1" title="get emptiness state of the queue " alt="" coords="121,5,209,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a924da96abe35d99289d7ba0259e75152_icgraph.png" border="0" usemap="#c_queue_8h_a924da96abe35d99289d7ba0259e75152_icgraph" alt=""/></div>
-<map name="c_queue_8h_a924da96abe35d99289d7ba0259e75152_icgraph" id="c_queue_8h_a924da96abe35d99289d7ba0259e75152_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="121,5,284,32"/>
+<div class="center"><img src="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_icgraph.png" border="0" usemap="#c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_icgraph" alt=""/></div>
+<map name="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_icgraph" id="c_queue_8h_a3ca3bab452e93e74c697afe4d435255f_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="332,5,381,32"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="121,31,284,57"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="abba53b4124d6b391507e8db6b201767b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abba53b4124d6b391507e8db6b201767b">&#9670;&nbsp;</a></span>q_peekIdx()</h2>
+<a id="a8307cfba00877f668fac62f6dbd7e5d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8307cfba00877f668fac62f6dbd7e5d7">&#9670;&nbsp;</a></span>q_peekIdx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -833,7 +935,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_peekIdx </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -860,7 +962,7 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>This function is only useful if searching for a duplicate record and shouldn't be used in conjunction with q_drop </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">record</td><td>- pointer to record to be peeked from queue </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idx</td><td>- index of the record to pick </td></tr>
   </table>
@@ -877,25 +979,28 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_abba53b4124d6b391507e8db6b201767b_cgraph.png" border="0" usemap="#c_queue_8h_abba53b4124d6b391507e8db6b201767b_cgraph" alt=""/></div>
-<map name="c_queue_8h_abba53b4124d6b391507e8db6b201767b_cgraph" id="c_queue_8h_abba53b4124d6b391507e8db6b201767b_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db" title="get number of records in the queue " alt="" coords="140,5,236,32"/>
+<div class="center"><img src="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_cgraph.png" border="0" usemap="#c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_cgraph" alt=""/></div>
+<map name="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_cgraph" id="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c" title="get number of records in the queue " alt="" coords="140,5,236,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_abba53b4124d6b391507e8db6b201767b_icgraph.png" border="0" usemap="#c_queue_8h_abba53b4124d6b391507e8db6b201767b_icgraph" alt=""/></div>
-<map name="c_queue_8h_abba53b4124d6b391507e8db6b201767b_icgraph" id="c_queue_8h_abba53b4124d6b391507e8db6b201767b_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="140,5,303,32"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#a928546b46a5b80fb6fff382f691d3fda" title="Peek previous record from queue. " alt="" coords="160,56,283,83"/>
+<div class="center"><img src="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_icgraph.png" border="0" usemap="#c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_icgraph" alt=""/></div>
+<map name="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_icgraph" id="c_queue_8h_a8307cfba00877f668fac62f6dbd7e5d7_icgraph">
+<area shape="rect" id="node2" href="esp32_2_queue_idx_peeking_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="197,5,246,32"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="140,56,303,83"/>
+<area shape="rect" id="node5" href="c_queue_8h.html#a897b1eea36d04ab4953966c452016470" title="Peek previous record from queue. " alt="" coords="160,107,283,133"/>
+<area shape="rect" id="node4" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="351,56,400,83"/>
+<area shape="rect" id="node6" href="esp32_2_queue_duplicates_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="351,107,400,133"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a928546b46a5b80fb6fff382f691d3fda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a928546b46a5b80fb6fff382f691d3fda">&#9670;&nbsp;</a></span>q_peekPrevious()</h2>
+<a id="a897b1eea36d04ab4953966c452016470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a897b1eea36d04ab4953966c452016470">&#9670;&nbsp;</a></span>q_peekPrevious()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -907,7 +1012,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_peekPrevious </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -933,7 +1038,7 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>This inline is only useful with FIFO implementation, use q_peek instead with a LIFO (will lead to the same result) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">record</td><td>- pointer to record to be peeked from queue </td></tr>
   </table>
   </dd>
@@ -949,17 +1054,25 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a928546b46a5b80fb6fff382f691d3fda_cgraph.png" border="0" usemap="#c_queue_8h_a928546b46a5b80fb6fff382f691d3fda_cgraph" alt=""/></div>
-<map name="c_queue_8h_a928546b46a5b80fb6fff382f691d3fda_cgraph" id="c_queue_8h_a928546b46a5b80fb6fff382f691d3fda_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a3c2519717ebc6064c0bd32c0e87da8db" title="get number of records in the queue " alt="" coords="311,5,407,32"/>
-<area shape="rect" id="node3" href="c_queue_8h.html#abba53b4124d6b391507e8db6b201767b" title="Peek record at index from queue. " alt="" coords="176,31,263,57"/>
+<div class="center"><img src="c_queue_8h_a897b1eea36d04ab4953966c452016470_cgraph.png" border="0" usemap="#c_queue_8h_a897b1eea36d04ab4953966c452016470_cgraph" alt=""/></div>
+<map name="c_queue_8h_a897b1eea36d04ab4953966c452016470_cgraph" id="c_queue_8h_a897b1eea36d04ab4953966c452016470_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c" title="get number of records in the queue " alt="" coords="311,5,407,32"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a8307cfba00877f668fac62f6dbd7e5d7" title="Peek record at index from queue. " alt="" coords="176,31,263,57"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_a897b1eea36d04ab4953966c452016470_icgraph.png" border="0" usemap="#c_queue_8h_a897b1eea36d04ab4953966c452016470_icgraph" alt=""/></div>
+<map name="c_queue_8h_a897b1eea36d04ab4953966c452016470_icgraph" id="c_queue_8h_a897b1eea36d04ab4953966c452016470_icgraph">
+<area shape="rect" id="node2" href="esp32_2_queue_duplicates_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="176,5,225,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a88ed8ebbf91280f1e68cfe442ce4f854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88ed8ebbf91280f1e68cfe442ce4f854">&#9670;&nbsp;</a></span>q_pop()</h2>
+<a id="abf8d0b95c08c471387f58bf89d1bd677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8d0b95c08c471387f58bf89d1bd677">&#9670;&nbsp;</a></span>q_pop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -968,7 +1081,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool q_pop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -988,7 +1101,7 @@ Here is the call graph for this function:</div>
 <dl class="section warning"><dt>Warning</dt><dd>If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application, you shall disable interrupts in main application when using these functions </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">record</td><td>- pointer to record to be popped from queue </td></tr>
   </table>
   </dd>
@@ -1004,24 +1117,25 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_cgraph.png" border="0" usemap="#c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_cgraph" alt=""/></div>
-<map name="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_cgraph" id="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a8f771f4607edeb5b21f2a2fb89127537" title="get emptiness state of the queue " alt="" coords="115,5,203,32"/>
+<div class="center"><img src="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_cgraph.png" border="0" usemap="#c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_cgraph" alt=""/></div>
+<map name="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_cgraph" id="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a628fb5fdbc98f2e78bf72f4d91f5afc1" title="get emptiness state of the queue " alt="" coords="115,5,203,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_icgraph.png" border="0" usemap="#c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_icgraph" alt=""/></div>
-<map name="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_icgraph" id="c_queue_8h_a88ed8ebbf91280f1e68cfe442ce4f854_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="115,5,277,32"/>
+<div class="center"><img src="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_icgraph.png" border="0" usemap="#c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_icgraph" alt=""/></div>
+<map name="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_icgraph" id="c_queue_8h_abf8d0b95c08c471387f58bf89d1bd677_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="325,5,375,32"/>
+<area shape="rect" id="node3" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="115,31,277,57"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab36ff9a52c769ebc2c52f96f309cc11b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab36ff9a52c769ebc2c52f96f309cc11b">&#9670;&nbsp;</a></span>q_push()</h2>
+<a id="a3329ab824b9c78b9173d15aad796db46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3329ab824b9c78b9173d15aad796db46">&#9670;&nbsp;</a></span>q_push()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1030,7 +1144,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool q_push </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
+          <td class="paramname"><em>pQ</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1050,7 +1164,7 @@ Here is the caller graph for this function:</div>
 <dl class="section warning"><dt>Warning</dt><dd>If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application, you shall disable interrupts in main application when using these functions </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">record</td><td>- pointer to record to be pushed into queue </td></tr>
   </table>
   </dd>
@@ -1066,24 +1180,26 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_cgraph.png" border="0" usemap="#c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_cgraph" alt=""/></div>
-<map name="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_cgraph" id="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_cgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a08ad4e8aed9a26265980b4cb76ac7ca8" title="get fullness state of the queue " alt="" coords="121,5,188,32"/>
+<div class="center"><img src="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_cgraph.png" border="0" usemap="#c_queue_8h_a3329ab824b9c78b9173d15aad796db46_cgraph" alt=""/></div>
+<map name="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_cgraph" id="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_cgraph">
+<area shape="rect" id="node2" href="c_queue_8h.html#a66498381f5e0865ab94d7d0b84c2c8f8" title="get fullness state of the queue " alt="" coords="121,5,188,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_icgraph.png" border="0" usemap="#c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_icgraph" alt=""/></div>
-<map name="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_icgraph" id="c_queue_8h_ab36ff9a52c769ebc2c52f96f309cc11b_icgraph">
-<area shape="rect" id="node2" href="c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="121,5,284,32"/>
+<div class="center"><img src="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_icgraph.png" border="0" usemap="#c_queue_8h_a3329ab824b9c78b9173d15aad796db46_icgraph" alt=""/></div>
+<map name="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_icgraph" id="c_queue_8h_a3329ab824b9c78b9173d15aad796db46_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="332,26,381,53"/>
+<area shape="rect" id="node3" href="esp32_2_pointers_queue_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="173,26,232,53"/>
+<area shape="rect" id="node4" href="c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="121,77,284,104"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a252ed831a910dfcebbc4e641d84f6552"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a252ed831a910dfcebbc4e641d84f6552">&#9670;&nbsp;</a></span>q_sizeof()</h2>
+<a id="a14cdff776a46c169180bbc7cb562a586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14cdff776a46c169180bbc7cb562a586">&#9670;&nbsp;</a></span>q_sizeof()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1095,7 +1211,7 @@ Here is the caller graph for this function:</div>
           <td class="memname">uint32_t q_sizeof </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_queue__t.html">Queue_t</a> *const&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
+          <td class="paramname"><em>pQ</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1110,11 +1226,19 @@ Here is the caller graph for this function:</div>
 <dl class="section remark"><dt>Remarks</dt><dd>Size in bytes (like sizeof) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>- pointer of queue to handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pQ</td><td>- pointer of queue to handle </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Size of queue in bytes </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="c_queue_8h_a14cdff776a46c169180bbc7cb562a586_icgraph.png" border="0" usemap="#c_queue_8h_a14cdff776a46c169180bbc7cb562a586_icgraph" alt=""/></div>
+<map name="c_queue_8h_a14cdff776a46c169180bbc7cb562a586_icgraph" id="c_queue_8h_a14cdff776a46c169180bbc7cb562a586_icgraph">
+<area shape="rect" id="node2" href="esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="128,5,187,32"/>
+</map>
+</div>
 
 </div>
 </div>

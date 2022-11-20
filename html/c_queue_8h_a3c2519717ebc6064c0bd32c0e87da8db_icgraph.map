@@ -1,5 +1,0 @@
-<map id="q_getCount" name="q_getCount">
-<area shape="rect" id="node2" href="$c_queue_8h.html#abba53b4124d6b391507e8db6b201767b" title="Peek record at index from queue. " alt="" coords="149,5,236,32"/>
-<area shape="rect" id="node4" href="$c_queue_8h.html#a928546b46a5b80fb6fff382f691d3fda" title="Peek previous record from queue. " alt="" coords="304,56,427,83"/>
-<area shape="rect" id="node3" href="$c_queue_8h.html#a6f1f6db6d2bff0e3cceda236a41a1e7f" title="get number of records left in the queue " alt="" coords="284,5,447,32"/>
-</map>

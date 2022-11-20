@@ -1,0 +1,6 @@
+<map id="q_kill" name="q_kill">
+<area shape="rect" id="node2" href="$c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad" title="Queue initialization (using dynamic queue allocation) " alt="" coords="128,5,184,32"/>
+<area shape="rect" id="node4" href="$c_queue_8h.html#a139efe75ea4da89ed41e6a77e7f25721" title="Queue initialization (using static queue) " alt="" coords="107,56,205,83"/>
+<area shape="rect" id="node3" href="$esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,5,312,32"/>
+<area shape="rect" id="node5" href="$esp32_2_simple_queue_static_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,56,312,83"/>
+</map>
