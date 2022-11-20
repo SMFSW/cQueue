@@ -1,4 +1,4 @@
-# cQueue
+# cQueue [![Build Status](https://travis-ci.com/SMFSW/cQueue.svg?branch=master)](https://travis-ci.com/SMFSW/cQueue)
 
 Queue handling library (written in plain c)
 
