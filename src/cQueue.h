@@ -1,6 +1,6 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017-2022, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2023, SMFSW
 ** \brief Queue handling library (written in plain c)
 ** \details Queue handling library (written in plain c)
 **/
@@ -14,6 +14,7 @@ extern "C" {
 
 #include <inttypes.h>
 #include <stdbool.h>
+#include <stddef.h>
 /****************************************************************/
 
 

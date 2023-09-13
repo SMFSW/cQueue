@@ -1,5 +1,5 @@
 cQueue: Queue handling library (written in plain c)
-2017-2022 SMFSW
+2017-2023 SMFSW
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
@@ -9,6 +9,9 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 ------------
 
 ** Actual:
+
+v1.9:	13 Sep 2023:
+- Fixed stddef.h missing include for some toolchains, thanks to @Junbo-Zheng
 
 v1.8:	15 Nov 2022:
 - SimpleQueueStatic.ino example added
