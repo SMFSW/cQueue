@@ -1,2 +1,9 @@
 <map id="src/cQueue.h" name="src/cQueue.h">
+<area shape="rect" id="Node000001" title="Queue handling library (written in plain c)" alt="" coords="95,5,194,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,84,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,35,75,73,72,69,126,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="107,80,182,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,33,147,65,142,65,142,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="206,80,275,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,30,214,69,211,73,160,35"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="q_init_static" name="q_init_static">
+<area shape="rect" id="Node000001" title="Queue initialization (using static queue)" alt="" coords="5,5,97,32"/>
+<area shape="rect" id="Node000002" href="$c_queue_8c.html#a37ef862202ab2ad80e50dde6a4f5e1a6" title="Queue destructor: release dynamically allocated queue." alt="" coords="145,5,196,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,16,130,16,130,21,97,21"/>
+</map>

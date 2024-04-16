@@ -1,3 +1,15 @@
 <map id="src/cQueue.c" name="src/cQueue.c">
-<area shape="rect" id="node4" href="$c_queue_8h.html" title="Queue handling library (written in plain c) " alt="" coords="193,80,275,107"/>
+<area shape="rect" id="Node000001" title="Queue handling library (written in plain c)" alt="" coords="76,5,175,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,70,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,35,66,72,62,68,108,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,80,157,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,33,128,65,123,65,123,33"/>
+<area shape="rect" id="Node000004" href="$c_queue_8h.html" title="Queue handling library (written in plain c)" alt="" coords="182,80,259,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,30,194,69,191,73,140,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="81,155,159,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="204,109,151,148,148,143,201,105"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="183,155,257,181"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="223,107,223,140,218,140,218,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="282,155,350,181"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="238,105,290,144,287,148,235,109"/>
 </map>

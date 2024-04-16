@@ -1,7 +1,0 @@
-<map id="q_isEmpty" name="q_isEmpty">
-<area shape="rect" id="node2" href="$esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="468,49,517,76"/>
-<area shape="rect" id="node3" href="$c_queue_8h.html#abf8d0b95c08c471387f58bf89d1bd677" title="Pop record from queue. " alt="" coords="145,24,206,51"/>
-<area shape="rect" id="node5" href="$c_queue_8h.html#a3ca3bab452e93e74c697afe4d435255f" title="Peek record from queue. " alt="" coords="141,125,209,152"/>
-<area shape="rect" id="node6" href="$c_queue_8h.html#ab47137c61a0fdcccc31bfad02c3dcded" title="Drop current record from queue. " alt="" coords="142,75,209,101"/>
-<area shape="rect" id="node4" href="$c_queue_8h.html#a723949859e2ec7e94d6be070a19a1616" title="get number of records left in the queue " alt="" coords="257,75,420,101"/>
-</map>

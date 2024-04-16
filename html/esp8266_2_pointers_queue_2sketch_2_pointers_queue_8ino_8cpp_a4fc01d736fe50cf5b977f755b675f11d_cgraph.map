@@ -1,9 +1,0 @@
-<map id="setup" name="setup">
-<area shape="rect" id="node2" href="$c_queue_8c.html#af8cfac945c37e6c1ed6c1950099059ad" title="Queue initialization (using dynamic queue allocation) " alt="" coords="119,5,175,32"/>
-<area shape="rect" id="node4" href="$esp32_2_pointers_queue_2sketch_2_pointers_queue_8ino_8cpp.html#a965431a061c733e4e2895f6a7f863731" title="action1" alt="" coords="112,56,181,83"/>
-<area shape="rect" id="node5" href="$esp32_2_pointers_queue_2sketch_2_pointers_queue_8ino_8cpp.html#a23cd3ea0453dbca5c516a56d17e0594d" title="action2" alt="" coords="112,107,181,133"/>
-<area shape="rect" id="node6" href="$esp32_2_pointers_queue_2sketch_2_pointers_queue_8ino_8cpp.html#a8dafdf2567350c3642ecad065a87dbf4" title="action3" alt="" coords="112,157,181,184"/>
-<area shape="rect" id="node7" href="$c_queue_8c.html#a3329ab824b9c78b9173d15aad796db46" title="Push record to queue. " alt="" coords="113,208,181,235"/>
-<area shape="rect" id="node3" href="$c_queue_8c.html#a37ef862202ab2ad80e50dde6a4f5e1a6" title="Queue destructor: release dynamically allocated queue. " alt="" coords="236,5,289,32"/>
-<area shape="rect" id="node8" href="$c_queue_8h.html#a66498381f5e0865ab94d7d0b84c2c8f8" title="get fullness state of the queue " alt="" coords="229,208,296,235"/>
-</map>

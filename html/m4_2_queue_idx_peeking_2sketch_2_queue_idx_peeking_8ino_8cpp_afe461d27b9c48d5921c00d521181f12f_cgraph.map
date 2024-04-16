@@ -1,6 +1,0 @@
-<map id="loop" name="loop">
-<area shape="rect" id="node2" href="$c_queue_8c.html#a3329ab824b9c78b9173d15aad796db46" title="Push record to queue. " alt="" coords="112,5,180,32"/>
-<area shape="rect" id="node4" href="$c_queue_8c.html#a8307cfba00877f668fac62f6dbd7e5d7" title="Peek record at index from queue. " alt="" coords="103,56,189,83"/>
-<area shape="rect" id="node3" href="$c_queue_8h.html#a66498381f5e0865ab94d7d0b84c2c8f8" title="get fullness state of the queue " alt="" coords="252,5,319,32"/>
-<area shape="rect" id="node5" href="$c_queue_8h.html#aee07f3bb019d468e8dee33cf85f5841c" title="get number of records in the queue " alt="" coords="237,56,333,83"/>
-</map>

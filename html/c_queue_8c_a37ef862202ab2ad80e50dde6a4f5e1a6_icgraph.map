@@ -1,6 +1,7 @@
 <map id="q_kill" name="q_kill">
-<area shape="rect" id="node2" href="$c_queue_8h.html#af8cfac945c37e6c1ed6c1950099059ad" title="Queue initialization (using dynamic queue allocation) " alt="" coords="128,5,184,32"/>
-<area shape="rect" id="node4" href="$c_queue_8h.html#a139efe75ea4da89ed41e6a77e7f25721" title="Queue initialization (using static queue) " alt="" coords="107,56,205,83"/>
-<area shape="rect" id="node3" href="$esp32_2_lib_tst_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,5,312,32"/>
-<area shape="rect" id="node5" href="$esp32_2_simple_queue_static_2preproc_2ctags__target__for__gcc__minus__e_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="253,56,312,83"/>
+<area shape="rect" id="Node000001" title="Queue destructor: release dynamically allocated queue." alt="" coords="145,31,196,57"/>
+<area shape="rect" id="Node000002" href="$c_queue_8c.html#a48b0c2bfc265d339e5d0cc1e0c7eb44f" title="Queue initialization (using dynamic queue allocation)" alt="" coords="25,5,77,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,38,77,27,78,22,131,33"/>
+<area shape="rect" id="Node000003" href="$c_queue_8c.html#afb27aa40aa81e5f69ccfc874b90f2afd" title="Queue initialization (using static queue)" alt="" coords="5,56,97,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,55,98,62,97,57,130,50"/>
 </map>

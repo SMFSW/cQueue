@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['out',['out',['../struct_queue__t.html#a42f7921bb486b2e7d7bb867ca1c97b28',1,'Queue_t']]],
-  ['ovw',['ovw',['../struct_queue__t.html#a1493974213cb7d47856503e006982444',1,'Queue_t']]]
+  ['rec_5fnb_0',['rec_nb',['../struct_queue__t.html#a8bb98d1908a703e206c3c07051529ea0',1,'Queue_t']]],
+  ['rec_5fsz_1',['rec_sz',['../struct_queue__t.html#a7e5b8f955847aef012b8f166b1050bc2',1,'Queue_t']]]
 ];
