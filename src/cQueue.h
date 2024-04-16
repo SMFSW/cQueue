@@ -1,12 +1,12 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017-2023, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2024, SMFSW
 ** \brief Queue handling library (written in plain c)
 ** \details Queue handling library (written in plain c)
 **/
 /****************************************************************/
-#ifndef __CQUEUE_H
-	#define __CQUEUE_H
+#ifndef CQUEUE_H_
+	#define CQUEUE_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,9 +18,7 @@ extern "C" {
 /****************************************************************/
 
 
-#define QUEUE_INITIALIZED	0x5AA5							//!< Queue initialized control value
-
-#define q_init_def(q, sz)	q_init(q, sz, 20, FIFO, false)	//!< Some kind of average default for queue initialization
+#define q_init_def(q, sz)	q_init(q, sz, 20, FIFO, false)	//!< Some kind of default behavior for queue initialization
 
 #define q_pull				q_pop							//!< \deprecated q_pull was already used in cQueue lib, alias is made to keep compatibility with earlier versions
 #define q_nbRecs			q_getCount						//!< \deprecated q_nbRecs was already used in cQueue lib, alias is made to keep compatibility with earlier versions
@@ -55,6 +53,9 @@ typedef struct Queue_t {
 } Queue_t;
 
 
+/*****************/
+/*** FUNCTIONS ***/
+/*****************/
 /*!	\brief Queue initialization (using dynamic queue allocation)
 **	\param [in,out] pQ - pointer of queue to handle
 **	\param [in] size_rec - size of a record in the queue (in bytes)
@@ -77,10 +78,10 @@ void * __attribute__((nonnull)) q_init(	Queue_t * const pQ,
 **	\param [in] lenQDat - Length of static data queue (in bytes) for static array size check against required size for queue
 **	\return Queue tab address (to remain consistent with \ref q_init)
 **/
-void * __attribute__((nonnull)) q_init_static(	Queue_t * const pQ,
-												const size_t size_rec, const uint16_t nb_recs,
-												const QueueType type, const bool overwrite,
-												void * const pQDat, const size_t lenQDat);
+void * __attribute__((nonnull(1))) q_init_static(	Queue_t * const pQ,
+													const size_t size_rec, const uint16_t nb_recs,
+													const QueueType type, const bool overwrite,
+													void * const pQDat, const size_t lenQDat);
 
 /*!	\brief Queue destructor: release dynamically allocated queue
 **	\param [in,out] pQ - pointer of queue to handle
@@ -91,55 +92,6 @@ void __attribute__((nonnull)) q_kill(Queue_t * const pQ);
 **	\param [in,out] pQ - pointer of queue to handle
 **/
 void __attribute__((nonnull)) q_flush(Queue_t * const pQ);
-
-/*!	\brief get initialization state of the queue
-**	\param [in] pQ - pointer of queue to handle
-**	\return Queue initialization status
-**	\retval true if queue is allocated
-**	\retval false is queue is not allocated
-**/
-inline bool __attribute__((nonnull, always_inline)) q_isInitialized(const Queue_t * const pQ) {
-	return (pQ->init == QUEUE_INITIALIZED) ? true : false; }
-
-/*!	\brief get emptiness state of the queue
-**	\param [in] pQ - pointer of queue to handle
-**	\return Queue emptiness status
-**	\retval true if queue is empty
-**	\retval false is not empty
-**/
-inline bool __attribute__((nonnull, always_inline)) q_isEmpty(const Queue_t * const pQ) {
-	return (!pQ->cnt) ? true : false; }
-
-/*!	\brief get fullness state of the queue
-**	\param [in] pQ - pointer of queue to handle
-**	\return Queue fullness status
-**	\retval true if queue is full
-**	\retval false is not full
-**/
-inline bool __attribute__((nonnull, always_inline)) q_isFull(const Queue_t * const pQ) {
-	return (pQ->cnt == pQ->rec_nb) ? true : false; }
-
-/*!	\brief get size of queue
-**	\remark Size in bytes (like sizeof)
-**	\param [in] pQ - pointer of queue to handle
-**	\return Size of queue in bytes
-**/
-inline uint32_t __attribute__((nonnull, always_inline)) q_sizeof(const Queue_t * const pQ) {
-	return pQ->queue_sz; }
-
-/*!	\brief get number of records in the queue
-**	\param [in] pQ - pointer of queue to handle
-**	\return Number of records stored in the queue
-**/
-inline uint16_t __attribute__((nonnull, always_inline)) q_getCount(const Queue_t * const pQ) {
-	return pQ->cnt; }
-
-/*!	\brief get number of records left in the queue
-**	\param [in] pQ - pointer of queue to handle
-**	\return Number of records left in the queue
-**/
-inline uint16_t __attribute__((nonnull, always_inline)) q_getRemainingCount(const Queue_t * const pQ) {
-	return pQ->rec_nb - pQ->cnt; }
 
 /*!	\brief Push record to queue
 **	\warning If using q_push, q_pop, q_peek, q_drop, q_peekItem and/or q_peekPrevious in both interrupts and main application,
@@ -209,9 +161,54 @@ bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const pQ, void * const r
 **	\retval true if successfully peeked from queue
 **	\retval false if queue is empty
 **/
-inline bool __attribute__((nonnull, always_inline)) q_peekPrevious(const Queue_t * const pQ, void * const record) {
-	const uint16_t idx = q_getCount(pQ) - 1;	// No worry about count - 1 when queue is empty, test is done by q_peekIdx
-	return q_peekIdx(pQ, record, idx); }
+bool __attribute__((nonnull)) q_peekPrevious(const Queue_t * const pQ, void * const record);
+
+
+/***************/
+/*** GETTERS ***/
+/***************/
+/*!	\brief get initialization state of the queue
+**	\param [in] pQ - pointer of queue to handle
+**	\return Queue initialization status
+**	\retval true if queue is allocated
+**	\retval false is queue is not allocated
+**/
+bool __attribute__((nonnull)) q_isInitialized(const Queue_t * const pQ);
+
+/*!	\brief get size of queue
+**	\remark Size in bytes (like sizeof)
+**	\param [in] pQ - pointer of queue to handle
+**	\return Size of queue in bytes
+**/
+uint32_t __attribute__((nonnull)) q_sizeof(const Queue_t * const pQ);
+
+/*!	\brief get emptiness state of the queue
+**	\param [in] pQ - pointer of queue to handle
+**	\return Queue emptiness status
+**	\retval true if queue is empty
+**	\retval false is not empty
+**/
+bool __attribute__((nonnull)) q_isEmpty(const Queue_t * const pQ);
+
+/*!	\brief get fullness state of the queue
+**	\param [in] pQ - pointer of queue to handle
+**	\return Queue fullness status
+**	\retval true if queue is full
+**	\retval false is not full
+**/
+bool __attribute__((nonnull)) q_isFull(const Queue_t * const pQ);
+
+/*!	\brief get number of records in the queue
+**	\param [in] pQ - pointer of queue to handle
+**	\return Number of records stored in the queue
+**/
+uint16_t __attribute__((nonnull)) q_getCount(const Queue_t * const pQ);
+
+/*!	\brief get number of records left in the queue
+**	\param [in] pQ - pointer of queue to handle
+**	\return Number of records left in the queue
+**/
+uint16_t __attribute__((nonnull)) q_getRemainingCount(const Queue_t * const pQ);
 
 
 /****************************************************************/
@@ -219,5 +216,5 @@ inline bool __attribute__((nonnull, always_inline)) q_peekPrevious(const Queue_t
 }
 #endif
 
-#endif /* __CQUEUE_H */
+#endif /* CQUEUE_H_ */
 /****************************************************************/

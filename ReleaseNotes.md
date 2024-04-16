@@ -1,5 +1,5 @@
 cQueue: Queue handling library (written in plain c)
-2017-2023 SMFSW
+2017-2024 SMFSW
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
@@ -9,6 +9,10 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 ------------
 
 ** Actual:
+
+v2.0:	15 Apr 2024:
+- No more inlines in header file (to generate proper static library)
+- MISRA refactoring
 
 v1.9:	13 Sep 2023:
 - Fixed stddef.h missing include for some toolchains, thanks to @Junbo-Zheng
