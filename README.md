@@ -1,4 +1,4 @@
-# cQueue
+# cQueue [![CodeFactor](https://www.codefactor.io/repository/github/smfsw/cqueue/badge)](https://www.codefactor.io/repository/github/smfsw/cqueue)
 
 Queue handling library (written in plain c)
 
