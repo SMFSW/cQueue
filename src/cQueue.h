@@ -1,6 +1,6 @@
 /*!\file cQueue.h
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017-2025, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2026, SMFSW
 ** \brief Queue handling library (written in plain c)
 ** \details Queue handling library (written in plain c)
 **/
@@ -25,10 +25,10 @@ extern "C" {
 #define q_clean				q_flush							//!< \deprecated q_clean was already used in cQueue lib, alias is made to keep compatibility with earlier versions
 
 
-/*!\enum enumQueueType
+/*!\enum QueueType
 ** \brief Queue behavior enumeration (FIFO, LIFO)
 **/
-typedef enum enumQueueType {
+typedef enum {
 	FIFO = 0,	//!< First In First Out behavior
 	LIFO = 1	//!< Last In First Out behavior
 } QueueType;
@@ -37,7 +37,7 @@ typedef enum enumQueueType {
 /*!\struct Queue_t
 ** \brief Queue type structure holding all variables to handle the queue
 **/
-typedef struct Queue_t {
+typedef struct {
 	QueueType	impl;		//!< Queue implementation: FIFO LIFO
 	bool		ovw;		//!< Overwrite previous records when queue is full allowed
 	bool		dynamic;	//!< Set to true when queue is dynamically allocated

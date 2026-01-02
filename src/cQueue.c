@@ -1,6 +1,6 @@
 /*!\file cQueue.c
 ** \author SMFSW
-** \copyright BSD 3-Clause License (c) 2017-2025, SMFSW
+** \copyright BSD 3-Clause License (c) 2017-2026, SMFSW
 ** \brief Queue handling library (written in plain c)
 ** \details Queue handling library (written in plain c)
 **/
@@ -20,11 +20,12 @@
 /**************************/
 /*!	\brief Increment index
 **	\details Increment buffer index \b pIdx rolling back to \b start when limit \b end is reached
+**	\note internal method (private)
 **	\param [in,out] pIdx - pointer to index value
 **	\param [in] end - counter upper limit value
 **	\param [in] start - counter lower limit value
 **/
-static inline void __attribute__((nonnull, always_inline)) _inc_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
+static inline void __attribute__((nonnull)) pvt_q_inc_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
 	if (*pIdx < (end - 1U))		{ (*pIdx)++; }
 	else						{ *pIdx = start; }
@@ -32,11 +33,12 @@ static inline void __attribute__((nonnull, always_inline)) _inc_idx(uint16_t * c
 
 /*!	\brief Decrement index
 **	\details Decrement buffer index \b pIdx rolling back to \b end when limit \b start is reached
+**	\note internal method (private)
 **	\param [in,out] pIdx - pointer to index value
 **	\param [in] end - counter upper limit value
 **	\param [in] start - counter lower limit value
 **/
-static inline void __attribute__((nonnull, always_inline)) _dec_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
+static inline void __attribute__((nonnull)) pvt_q_dec_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
 	if (*pIdx > start)		{ (*pIdx)--; }
 	else					{ *pIdx = end - 1U; }
@@ -45,37 +47,41 @@ static inline void __attribute__((nonnull, always_inline)) _dec_idx(uint16_t * c
 
 /*!	\brief get initialization state of the queue
 **	\param [in] pQ - pointer of queue to handle
+**	\note internal method (private)
 **	\return Queue initialization status
 **	\retval true if queue is allocated
 **	\retval false is queue is not allocated
 **/
-static inline bool __attribute__((nonnull, always_inline)) _q_isInitialized(const Queue_t * const pQ) {
+static inline bool __attribute__((nonnull, always_inline)) pvt_q_isInitialized(const Queue_t * const pQ) {
 	return (pQ->init == QUEUE_INITIALIZED) ? true : false; }
 
 /*!	\brief get emptiness state of the queue
 **	\param [in] pQ - pointer of queue to handle
+**	\note internal method (private)
 **	\return Queue emptiness status
 **	\retval true if queue is empty
 **	\retval false is not empty
 **/
-static inline bool __attribute__((nonnull, always_inline)) _q_isEmpty(const Queue_t * const pQ) {
+static inline bool __attribute__((nonnull, always_inline)) pvt_q_isEmpty(const Queue_t * const pQ) {
 	return (pQ->cnt == 0U) ? true : false; }
 
 /*!	\brief get fullness state of the queue
 **	\param [in] pQ - pointer of queue to handle
+**	\note internal method (private)
 **	\return Queue fullness status
 **	\retval true if queue is full
 **	\retval false is not full
 **/
-static inline bool __attribute__((nonnull, always_inline)) _q_isFull(const Queue_t * const pQ) {
+static inline bool __attribute__((nonnull, always_inline)) pvt_q_isFull(const Queue_t * const pQ) {
 	return (pQ->cnt == pQ->rec_nb) ? true : false; }
 
 
 /*!	\brief get number of records in the queue
+**	\note internal method (private)
 **	\param [in] pQ - pointer of queue to handle
 **	\return Number of records stored in the queue
 **/
-static inline uint16_t __attribute__((nonnull, always_inline)) _q_getCount(const Queue_t * const pQ) {
+static inline uint16_t __attribute__((nonnull, always_inline)) pvt_q_getCount(const Queue_t * const pQ) {
 	return pQ->cnt; }
 
 
@@ -134,7 +140,7 @@ void * __attribute__((nonnull(1))) q_init_static(	Queue_t * const pQ,
 
 void __attribute__((nonnull)) q_kill(Queue_t * const pQ)
 {
-	if (_q_isInitialized(pQ) && pQ->dynamic && (pQ->queue != NULL))	{ free(pQ->queue); }	// Free existing data (if already dynamically initialized)
+	if (pvt_q_isInitialized(pQ) && pQ->dynamic && (pQ->queue != NULL))	{ free(pQ->queue); }	// Free existing data (if already dynamically initialized)
 	memset(pQ, 0, sizeof(Queue_t));
 }
 
@@ -151,13 +157,13 @@ bool __attribute__((nonnull)) q_push(Queue_t * const pQ, const void * const reco
 {
 	bool ret = true;
 
-	if (_q_isFull(pQ))		// No more records available
+	if (pvt_q_isFull(pQ))		// No more records available
 	{
 		if (pQ->ovw)		// Queue is full, overwrite is allowed
 		{
 			if (pQ->impl == FIFO)
 			{
-				_inc_idx(&pQ->out, pQ->rec_nb, 0);	// as oldest record is overwritten, increment out
+				pvt_q_inc_idx(&pQ->out, pQ->rec_nb, 0);	// as oldest record is overwritten, increment out
 			}
 			//else if (pQ->impl == LIFO)	{}		// Nothing to do in this case
 		}
@@ -175,7 +181,7 @@ bool __attribute__((nonnull)) q_push(Queue_t * const pQ, const void * const reco
 	{
 		uint8_t * const pStart = pQ->queue + (pQ->rec_sz * pQ->in);
 		memcpy(pStart, record, pQ->rec_sz);
-		_inc_idx(&pQ->in, pQ->rec_nb, 0);
+		pvt_q_inc_idx(&pQ->in, pQ->rec_nb, 0);
 	}
 
 	return ret;
@@ -185,7 +191,7 @@ bool __attribute__((nonnull)) q_pop(Queue_t * const pQ, void * const record)
 {
 	bool ret = true;
 
-	if (_q_isEmpty(pQ))		// No records
+	if (pvt_q_isEmpty(pQ))		// No records
 	{
 		ret = false;
 	}
@@ -196,11 +202,11 @@ bool __attribute__((nonnull)) q_pop(Queue_t * const pQ, void * const record)
 		if (pQ->impl == FIFO)
 		{
 			pStart = pQ->queue + (pQ->rec_sz * pQ->out);
-			_inc_idx(&pQ->out, pQ->rec_nb, 0);
+			pvt_q_inc_idx(&pQ->out, pQ->rec_nb, 0);
 		}
 		else /* if (pQ->impl == LIFO) */
 		{
-			_dec_idx(&pQ->in, pQ->rec_nb, 0);
+			pvt_q_dec_idx(&pQ->in, pQ->rec_nb, 0);
 			pStart = pQ->queue + (pQ->rec_sz * pQ->in);
 		}
 
@@ -215,7 +221,7 @@ bool __attribute__((nonnull)) q_peek(const Queue_t * const pQ, void * const reco
 {
 	bool ret = true;
 
-	if (_q_isEmpty(pQ))		// No records
+	if (pvt_q_isEmpty(pQ))		// No records
 	{
 		ret = false;
 	}
@@ -231,7 +237,7 @@ bool __attribute__((nonnull)) q_peek(const Queue_t * const pQ, void * const reco
 		else /* if (pQ->impl == LIFO) */
 		{
 			uint16_t rec = pQ->in;	// Temporary var for peek (no change on pQ->in with dec_idx)
-			_dec_idx(&rec, pQ->rec_nb, 0);
+			pvt_q_dec_idx(&rec, pQ->rec_nb, 0);
 			pStart = pQ->queue + (pQ->rec_sz * rec);
 		}
 
@@ -245,7 +251,7 @@ bool __attribute__((nonnull)) q_drop(Queue_t * const pQ)
 {
 	bool ret = true;
 
-	if (_q_isEmpty(pQ))		// No records
+	if (pvt_q_isEmpty(pQ))		// No records
 	{
 		ret = false;
 	}
@@ -253,11 +259,11 @@ bool __attribute__((nonnull)) q_drop(Queue_t * const pQ)
 	{
 		if (pQ->impl == FIFO)
 		{
-			_inc_idx(&pQ->out, pQ->rec_nb, 0);
+			pvt_q_inc_idx(&pQ->out, pQ->rec_nb, 0);
 		}
 		else /*if (pQ->impl == LIFO)*/
 		{
-			_dec_idx(&pQ->in, pQ->rec_nb, 0);
+			pvt_q_dec_idx(&pQ->in, pQ->rec_nb, 0);
 		}
 
 		pQ->cnt--;	// Decrease records count
@@ -270,7 +276,7 @@ bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const pQ, void * const r
 {
 	bool ret = true;
 
-	if ((idx + 1U) > _q_getCount(pQ))	// Index out of range
+	if ((idx + 1U) > pvt_q_getCount(pQ))	// Index out of range
 	{
 		ret = false;
 	}
@@ -295,7 +301,7 @@ bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const pQ, void * const r
 
 bool __attribute__((nonnull)) q_peekPrevious(const Queue_t * const pQ, void * const record)
 {
-	const uint16_t idx = _q_getCount(pQ) - 1U;	// No worry about count -1 when queue is empty, test is done by q_peekIdx
+	const uint16_t idx = pvt_q_getCount(pQ) - 1U;	// No worry about count -1 when queue is empty, test is done by q_peekIdx
 	return q_peekIdx(pQ, record, idx);
 }
 
@@ -304,19 +310,19 @@ bool __attribute__((nonnull)) q_peekPrevious(const Queue_t * const pQ, void * co
 /*** PUBLIC GETTERS ***/
 /**********************/
 bool __attribute__((nonnull)) q_isInitialized(const Queue_t * const pQ) {
-	return _q_isInitialized(pQ); }
+	return pvt_q_isInitialized(pQ); }
 
 uint32_t __attribute__((nonnull)) q_sizeof(const Queue_t * const pQ) {
 	return pQ->queue_sz; }
 
 bool __attribute__((nonnull)) q_isEmpty(const Queue_t * const pQ) {
-	return _q_isEmpty(pQ); }
+	return pvt_q_isEmpty(pQ); }
 
 bool __attribute__((nonnull)) q_isFull(const Queue_t * const pQ) {
-	return _q_isFull(pQ); }
+	return pvt_q_isFull(pQ); }
 
 uint16_t __attribute__((nonnull)) q_getCount(const Queue_t * const pQ) {
-	return _q_getCount(pQ); }
+	return pvt_q_getCount(pQ); }
 
 uint16_t __attribute__((nonnull)) q_getRemainingCount(const Queue_t * const pQ) {
 	return pQ->rec_nb - pQ->cnt; }

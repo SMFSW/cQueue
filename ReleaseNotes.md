@@ -1,5 +1,5 @@
 cQueue: Queue handling library (written in plain c)
-2017-2025 SMFSW
+2017-2026 SMFSW
 
 Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 	- issues encountered
@@ -9,6 +9,11 @@ Feel free to share your thoughts @ xgarmanboziax@gmail.com about:
 ------------
 
 ** Actual:
+
+v2.1:	02 Jan 2026:
+- Internal functions name refactoring
+- Unused tags removal
+- always_inline attribute removal for index manipulation functions
 
 v2.0:	15 Apr 2024:
 - No more inlines in header file (to generate proper static library)
