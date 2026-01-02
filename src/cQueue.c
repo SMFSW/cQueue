@@ -27,8 +27,14 @@
 **/
 static inline void __attribute__((nonnull)) pvt_q_inc_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
-	if (*pIdx < (end - 1U))		{ (*pIdx)++; }
-	else						{ *pIdx = start; }
+	if (*pIdx < (end - 1U))
+	{
+		(*pIdx)++;
+	}
+	else
+	{
+		*pIdx = start;
+	}
 }
 
 /*!	\brief Decrement index
@@ -40,8 +46,14 @@ static inline void __attribute__((nonnull)) pvt_q_inc_idx(uint16_t * const pIdx,
 **/
 static inline void __attribute__((nonnull)) pvt_q_dec_idx(uint16_t * const pIdx, const uint16_t end, const uint16_t start)
 {
-	if (*pIdx > start)		{ (*pIdx)--; }
-	else					{ *pIdx = end - 1U; }
+	if (*pIdx > start)
+	{
+		(*pIdx)--;
+	}
+	else
+	{
+		*pIdx = end - 1U;
+	}
 }
 
 
@@ -140,8 +152,12 @@ void * __attribute__((nonnull(1))) q_init_static(	Queue_t * const pQ,
 
 void __attribute__((nonnull)) q_kill(Queue_t * const pQ)
 {
-	if (pvt_q_isInitialized(pQ) && pQ->dynamic && (pQ->queue != NULL))	{ free(pQ->queue); }	// Free existing data (if already dynamically initialized)
-	memset(pQ, 0, sizeof(Queue_t));
+	if (pvt_q_isInitialized(pQ) && pQ->dynamic && (pQ->queue != NULL))
+	{
+		free(pQ->queue);	// Free existing data (if already dynamically initialized)
+	}
+
+	(void) memset(pQ, 0, sizeof(Queue_t));
 }
 
 
@@ -180,7 +196,7 @@ bool __attribute__((nonnull)) q_push(Queue_t * const pQ, const void * const reco
 	if (ret)
 	{
 		uint8_t * const pStart = pQ->queue + (pQ->rec_sz * pQ->in);
-		memcpy(pStart, record, pQ->rec_sz);
+		(void) memcpy(pStart, record, pQ->rec_sz);
 		pvt_q_inc_idx(&pQ->in, pQ->rec_nb, 0);
 	}
 
@@ -210,7 +226,7 @@ bool __attribute__((nonnull)) q_pop(Queue_t * const pQ, void * const record)
 			pStart = pQ->queue + (pQ->rec_sz * pQ->in);
 		}
 
-		memcpy(record, pStart, pQ->rec_sz);
+		(void) memcpy(record, pStart, pQ->rec_sz);
 		pQ->cnt--;	// Decrease records count
 	}
 
@@ -241,7 +257,7 @@ bool __attribute__((nonnull)) q_peek(const Queue_t * const pQ, void * const reco
 			pStart = pQ->queue + (pQ->rec_sz * rec);
 		}
 
-		memcpy(record, pStart, pQ->rec_sz);
+		(void) memcpy(record, pStart, pQ->rec_sz);
 	}
 
 	return ret;
@@ -293,7 +309,7 @@ bool __attribute__((nonnull)) q_peekIdx(const Queue_t * const pQ, void * const r
 			pStart = pQ->queue + (pQ->rec_sz * idx);
 		}
 
-		memcpy(record, pStart, pQ->rec_sz);
+		(void) memcpy(record, pStart, pQ->rec_sz);
 	}
 
 	return ret;
